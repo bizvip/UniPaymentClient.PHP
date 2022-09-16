@@ -24,12 +24,9 @@ curl -sS https://getcomposer.org/installer | php
 Add unipayment/client into require section of composer.json 
 ```json
 {
-  ...
   "require": {
-    ...
     "unipayment/client": "1.*"
   }
-  ...
 }
 
 ```
