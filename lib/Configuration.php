@@ -52,7 +52,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'unipayment_sdk_php/1.0.0.0';
+    protected $userAgent = 'unipayment_sdk_php/1.0.1';
 
     /**
      * Debug switch (default set to false)
@@ -164,8 +164,7 @@ class Configuration
         $this->isSandbox = $isSandbox;
         if($this->isSandbox)
         {
-            //$this->apiHost="https://sandbox-api.unipayment.io";
-            $this->apiHost="https://dev-f5bv0e-api.unipayment.io";
+            $this->apiHost="https://sandbox-api.unipayment.io";
         }
         else
         {

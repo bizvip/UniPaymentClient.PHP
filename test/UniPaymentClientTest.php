@@ -18,12 +18,12 @@ class UniPaymentClientTest extends TestCase
 {
     private $uniPaymentClient;
 
-    private $clientId='a91b5d49-ddad-4efc-8e73-7d42d8eb8c08';
-    private $clientSecret='7acpzHzWe2GaAnCy2q6fwnugaN69Bc9Ku';
-    private $appId='63de6f86-4d58-4403-afca-ffbaa787e227';
+    private $clientId='74feb539-ba5a-4ae9-b901-4da4fb539574';
+    private $clientSecret='BsoRhgqzhR1TYMtwTRYdPxBTvR5rxkW9K';
+    private $appId='2a9bd90b-fe95-4659-83cb-04de662fbbac';
     private $isSandbox = true;
-    private $invoiceId = 'PnC87CWRCsvPheYnHBuB4p';
-    private $notify = '{"ipn_type":"invoice","event":"invoice_created","app_id":"63de6f86-4d58-4403-afca-ffbaa787e227","invoice_id":"PnC87CWRCsvPheYnHBuB4p","order_id":"6330ebcab3607","price_amount":100.0,"price_currency":"USD","network":null,"address":null,"pay_currency":"USDT","pay_amount":0.0,"exchange_rate":0.0,"paid_amount":0.0,"confirmed_amount":0.0,"refunded_price_amount":0.0,"create_time":"2022-09-26T00:01:15.4893061Z","expiration_time":"2022-09-26T00:31:15.4893749Z","status":"New","error_status":"None","ext_args":null,"transactions":null,"notify_id":"19f31b22-83f4-4f98-9956-ed8ecb0fe93a","notify_time":"0001-01-01T00:00:00"}';
+    private $invoiceId = 'SrAARgNrPgvveiBQtNc4gk';
+    private $notify = '{"ipn_type":"invoice","event":"invoice_created","app_id":"2a9bd90b-fe95-4659-83cb-04de662fbbac","invoice_id":"SrAARgNrPgvveiBQtNc4gk","order_id":"6330f1f118df1","price_amount":100.0,"price_currency":"USD","network":null,"address":null,"pay_currency":"USDT","pay_amount":0.0,"exchange_rate":0.0,"paid_amount":0.0,"confirmed_amount":0.0,"refunded_price_amount":0.0,"create_time":"2022-09-26T00:27:29.6697063Z","expiration_time":"2022-09-26T00:32:29.6698139Z","status":"New","error_status":"None","ext_args":null,"transactions":null,"notify_id":"0443e623-492a-474a-bd22-b866d6b7beb9","notify_time":"0001-01-01T00:00:00"}';
 
     /**
      * Setup before running any test cases

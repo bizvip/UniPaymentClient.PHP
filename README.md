@@ -43,8 +43,8 @@ Sandbox is used in the same way with is_sandbox as true.
 
 ```php
 $client = new \UniPayment\Client\UniPaymentClient();
-$client->getConfig()->setClientId("your app id");
-$client->getConfig()->setClientSecret("you api key");
+$client->getConfig()->setClientId("your client id");
+$client->getConfig()->setClientSecret("you client secret");
 $client->getConfig()->setIsSandbox(true)
 ```
 
