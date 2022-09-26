@@ -34,8 +34,8 @@ Add unipayment/client into require section of composer.json
 ## Initializing UniPayment client
 ```php
 client = new \UniPayment\Client\UniPaymentClient();
-client->getConfig()->setAppId("your app id");
-client->getConfig()->setApiKey("you api key");
+client->getConfig()->setClientId("your client id");
+client->getConfig()->setClientSecret("you client secret");
 
 ```
 
@@ -43,8 +43,8 @@ Sandbox is used in the same way with is_sandbox as true.
 
 ```php
 $client = new \UniPayment\Client\UniPaymentClient();
-$client->getConfig()->setAppId("your app id");
-$client->getConfig()->setApiKey("you api key");
+$client->getConfig()->setClientId("your app id");
+$client->getConfig()->setClientSecret("you api key");
 $client->getConfig()->setIsSandbox(true)
 ```
 
@@ -52,10 +52,12 @@ $client->getConfig()->setIsSandbox(true)
 > Reference：https://unipayment.readme.io/reference/create_invoice
 
 ```php
-$app_id='your app id'
-$api_key='your api key'
+$client_id='your client id'
+$client_secret='your client secret'
+$app_id = 'your payment app id'
 
 $createInvoiceRequest = new \UniPayment\Client\Model\CreateInvoiceRequest();
+$createInvoiceRequest->setAppId($app_id);
 $createInvoiceRequest->setPriceAmount("10.05");
 $createInvoiceRequest->setPriceCurrency("USD");
 $createInvoiceRequest->setNotifyUrl("https://example.com/notify");
@@ -66,8 +68,8 @@ $createInvoiceRequest->setDescription("MacBookAir (256#)");
 
 
 $client = new \UniPayment\Client\UniPaymentClient();
-$client->getConfig()->setAppId($app_id);
-$client->getConfig()->setApiKey($api_key);
+$client->getConfig()->setClientId($client_id);
+$client->getConfig()->setClientSecret($client_secret);
 
 create_invoice_response = $this->uniPaymentClient->createInvoice($createInvoiceRequest);
 ```
@@ -105,17 +107,17 @@ create_invoice_response = $this->uniPaymentClient->createInvoice($createInvoiceR
 
 > Invoice Status: https://unipayment.readme.io/reference/invoice-status
 
-IPNs (Instant Payment Notifications) are sent to the notify_url when order status is changed to paid, confirmed and complete. 
+IPNs (Instant Payment Notifications) are sent to the notify_url when order status is changed to paid, confirmed and complete.
 
 ```php
 
-$app_id='your app id'
-$api_key='your api key'
+$app_id='your client id'
+$api_key='your client secret'
 $notify='{"ipn_type":"invoice","event":"invoice_created","app_id":"cee1b9e2-d90c-4b63-9824-d621edb38012","invoice_id":"12wQquUmeCPUx3qmp3aHnd","order_id":"ORDER_123456","price_amount":2.0,"price_currency":"USD","network":null,"address":null,"pay_currency":null,"pay_amount":0.0,"exchange_rate":0.0,"paid_amount":0.0,"confirmed_amount":0.0,"refunded_price_amount":0.0,"create_time":"2022-09-14T04:57:54.5599307Z","expiration_time":"2022-09-14T05:02:54.559933Z","status":"New","error_status":"None","ext_args":"Merchant Pass Through Data","transactions":null,"notify_id":"fd58cedd-67c6-4053-ae65-2f6fb09a7d2c","notify_time":"0001-01-01T00:00:00"}';
 
 $client = new \UniPayment\Client\UniPaymentClient();
-$client->getConfig()->setAppId($app_id);
-$client->getConfig()->setApiKey($api_key);
+$client->getConfig()->setClientId($app_id);
+$client->getConfig()->setClientSecret($api_key);
 
 $response = $$client->checkIpn($notify);
 

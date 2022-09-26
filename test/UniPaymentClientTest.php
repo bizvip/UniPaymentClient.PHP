@@ -18,6 +18,13 @@ class UniPaymentClientTest extends TestCase
 {
     private $uniPaymentClient;
 
+    private $clientId='a91b5d49-ddad-4efc-8e73-7d42d8eb8c08';
+    private $clientSecret='7acpzHzWe2GaAnCy2q6fwnugaN69Bc9Ku';
+    private $appId='63de6f86-4d58-4403-afca-ffbaa787e227';
+    private $isSandbox = true;
+    private $invoiceId = 'PnC87CWRCsvPheYnHBuB4p';
+    private $notify = '{"ipn_type":"invoice","event":"invoice_created","app_id":"63de6f86-4d58-4403-afca-ffbaa787e227","invoice_id":"PnC87CWRCsvPheYnHBuB4p","order_id":"6330ebcab3607","price_amount":100.0,"price_currency":"USD","network":null,"address":null,"pay_currency":"USDT","pay_amount":0.0,"exchange_rate":0.0,"paid_amount":0.0,"confirmed_amount":0.0,"refunded_price_amount":0.0,"create_time":"2022-09-26T00:01:15.4893061Z","expiration_time":"2022-09-26T00:31:15.4893749Z","status":"New","error_status":"None","ext_args":null,"transactions":null,"notify_id":"19f31b22-83f4-4f98-9956-ed8ecb0fe93a","notify_time":"0001-01-01T00:00:00"}';
+
     /**
      * Setup before running any test cases
      */
@@ -32,9 +39,9 @@ class UniPaymentClientTest extends TestCase
     {
         $this->uniPaymentClient = new UniPaymentClient();
 
-        $this->uniPaymentClient->getConfig()->setAppId("cee1b9e2-d90c-4b63-9824-d621edb38012");
-        $this->uniPaymentClient->getConfig()->setApiKey("9G62Fd7fCQGyznVvatk4SAfGsHDEt819E");
-        $this->uniPaymentClient->getConfig()->setIsSandbox(true);
+        $this->uniPaymentClient->getConfig()->setClientId($this->clientId);
+        $this->uniPaymentClient->getConfig()->setClientSecret($this->clientSecret);
+        $this->uniPaymentClient->getConfig()->setIsSandbox($this->isSandbox);
         $this->uniPaymentClient->getConfig()->setDebug(true);
     }
 
@@ -58,6 +65,7 @@ class UniPaymentClientTest extends TestCase
     public function testCreateInvoice()
     {
         $createInvoiceRequest = new CreateInvoiceRequest();
+        $createInvoiceRequest->setAppId($this->appId);
         $createInvoiceRequest->setPriceAmount("100");
         $createInvoiceRequest->setPriceCurrency("USD");
         $createInvoiceRequest->setPayCurrency("USDT");
@@ -92,7 +100,7 @@ class UniPaymentClientTest extends TestCase
      */
     public function testGetInvoiceById()
     {
-        $response = $this->uniPaymentClient->getInvoiceById('9EfHVGLDjQssJv7xnBsDSM');
+        $response = $this->uniPaymentClient->getInvoiceById($this->invoiceId);
         $this->assertEquals('OK', $response->getCode());
     }
 
@@ -142,8 +150,7 @@ class UniPaymentClientTest extends TestCase
      */
     public function testcheckIpn()
     {
-        $notify='{"ipn_type":"invoice","event":"invoice_created","app_id":"cee1b9e2-d90c-4b63-9824-d621edb38012","invoice_id":"12wQquUmeCPUx3qmp3aHnd","order_id":"ORDER_123456","price_amount":2.0,"price_currency":"USD","network":null,"address":null,"pay_currency":null,"pay_amount":0.0,"exchange_rate":0.0,"paid_amount":0.0,"confirmed_amount":0.0,"refunded_price_amount":0.0,"create_time":"2022-09-14T04:57:54.5599307Z","expiration_time":"2022-09-14T05:02:54.559933Z","status":"New","error_status":"None","ext_args":"Merchant Pass Through Data","transactions":null,"notify_id":"fd58cedd-67c6-4053-ae65-2f6fb09a7d2c","notify_time":"0001-01-01T00:00:00"}';
-        $response = $this->uniPaymentClient->checkIpn($notify);
+        $response = $this->uniPaymentClient->checkIpn($this->notify);
         $this->assertEquals('OK', $response->getCode());
     }
 }

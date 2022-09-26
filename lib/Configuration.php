@@ -13,18 +13,18 @@ class Configuration
     private static $defaultConfiguration;
 
     /**
-     * APP ID
+     * Client ID
      *
      * @var string
      */
-    protected $appId = '';
+    protected $clientId = '';
 
     /**
-     * Api Key
+     * Client Secret
      *
      * @var string
      */
-    protected $apiKey = '';
+    protected $clientSecret = '';
 
     /**
      * Api Host
@@ -84,38 +84,38 @@ class Configuration
     }
 
     /**
-     * Set APP ID
+     * Set Client ID
      *
-     * @param string $appId APP ID
+     * @param string $clientId Client ID
      *
      * @return $this
      */
-    public function setAppId($appId)
+    public function setClientId($clientId)
     {
-        $this->appId = $appId;
+        $this->clientId = $clientId;
         return $this;
     }
 
     /**
-     * Gets the APP ID
+     * Gets the Client ID
      *
-     * @return string APP ID
+     * @return string Client ID
      */
-    public function getAppId()
+    public function getClientId()
     {
-        return $this->appId;
+        return $this->clientId;
     }
 
     /**
-     * Set API key
+     * Set Client Secret
      *
-     * @param string $apiKey API key
+     * @param string $clientSecret  Client Secret
      *
      * @return $this
      */
-    public function setApiKey($apiKey)
+    public function setClientSecret($clientSecret)
     {
-        $this->apiKey = $apiKey;
+        $this->clientSecret = $clientSecret;
         return $this;
     }
 
@@ -124,9 +124,9 @@ class Configuration
      *
      * @return string API key
      */
-    public function getApiKey()
+    public function getClientSecret()
     {
-        return $this->apiKey;
+        return $this->clientSecret;
     }
 
     /**
@@ -164,7 +164,8 @@ class Configuration
         $this->isSandbox = $isSandbox;
         if($this->isSandbox)
         {
-            $this->apiHost="https://sandbox-api.unipayment.io";
+            //$this->apiHost="https://sandbox-api.unipayment.io";
+            $this->apiHost="https://dev-f5bv0e-api.unipayment.io";
         }
         else
         {
