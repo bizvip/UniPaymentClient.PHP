@@ -20,6 +20,12 @@ use UniPayment\Client\Model\QueryInvoiceRequest;
 use UniPayment\Client\Model\QueryInvoiceResponse;
 use UniPayment\Client\Model\ResponseInvoiceModel;
 
+function build_query($arg)
+{
+    return \GuzzleHttp\Psr7\Query::build($arg);
+}
+
+
 /**
  * UniPaymentClient Class
  */
@@ -291,7 +297,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -307,7 +313,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'POST';
@@ -541,7 +547,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -557,7 +563,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'GET';
@@ -830,7 +836,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -846,7 +852,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'GET';
@@ -1100,7 +1106,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -1116,7 +1122,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'GET';
@@ -1370,7 +1376,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -1386,7 +1392,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'GET';
@@ -1640,7 +1646,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -1656,7 +1662,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'GET';
@@ -1890,7 +1896,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -1906,7 +1912,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'GET';
@@ -2155,7 +2161,7 @@ class UniPaymentClient
 
             } else {
                 // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+                $httpBody = build_query($formParams);
             }
         }
 
@@ -2171,7 +2177,7 @@ class UniPaymentClient
             $headers
         );
 
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        $query = build_query($queryParams);
 
         $url = $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : '');
         $requestMethod = 'POST';

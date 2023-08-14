@@ -18,11 +18,12 @@ class UniPaymentClientTest extends TestCase
 {
     private $uniPaymentClient;
 
-    private $clientId='74feb539-ba5a-4ae9-b901-4da4fb539574';
-    private $clientSecret='BsoRhgqzhR1TYMtwTRYdPxBTvR5rxkW9K';
-    private $appId='2a9bd90b-fe95-4659-83cb-04de662fbbac';
+    private $clientId='399fc017-6305-4073-ab1b-7ca5d37be985';
+    private $clientSecret='94eWn6GdAWbWMmdTbTRa1e9HAZgs851Ry';
+    private $appId='e76535a0-32cf-448a-81e6-607c321dcaf9';
+    private $order_id = 'test_order_id';
     private $isSandbox = true;
-    private $invoiceId = 'SrAARgNrPgvveiBQtNc4gk';
+    private $invoiceId = 'P8wMaXZJZx5VfgZ8nEZk7j';
     private $notify = '{"ipn_type":"invoice","event":"invoice_created","app_id":"2a9bd90b-fe95-4659-83cb-04de662fbbac","invoice_id":"SrAARgNrPgvveiBQtNc4gk","order_id":"6330f1f118df1","price_amount":100.0,"price_currency":"USD","network":null,"address":null,"pay_currency":"USDT","pay_amount":0.0,"exchange_rate":0.0,"paid_amount":0.0,"confirmed_amount":0.0,"refunded_price_amount":0.0,"create_time":"2022-09-26T00:27:29.6697063Z","expiration_time":"2022-09-26T00:32:29.6698139Z","status":"New","error_status":"None","ext_args":null,"transactions":null,"notify_id":"0443e623-492a-474a-bd22-b866d6b7beb9","notify_time":"0001-01-01T00:00:00"}';
 
     /**
@@ -43,6 +44,8 @@ class UniPaymentClientTest extends TestCase
         $this->uniPaymentClient->getConfig()->setClientSecret($this->clientSecret);
         $this->uniPaymentClient->getConfig()->setIsSandbox($this->isSandbox);
         $this->uniPaymentClient->getConfig()->setDebug(true);
+
+        $this->order_id = uniqid();
     }
 
     /**
@@ -69,7 +72,7 @@ class UniPaymentClientTest extends TestCase
         $createInvoiceRequest->setPriceAmount("100");
         $createInvoiceRequest->setPriceCurrency("USD");
         $createInvoiceRequest->setPayCurrency("USDT");
-        $createInvoiceRequest->setOrderId(uniqid());
+        $createInvoiceRequest->setOrderId($this->order_id);
         $createInvoiceRequest->setConfirmSpeed("low");
         $createInvoiceRequest->setRedirectUrl("https://google.com");
         $createInvoiceRequest->setNotifyUrl("https://google.com");
@@ -88,7 +91,7 @@ class UniPaymentClientTest extends TestCase
     public function testQueryInvoices()
     {
         $queryInvoiceRequest = new QueryInvoiceRequest();
-        $queryInvoiceRequest->setOrderId("ORDER_123456");
+        $queryInvoiceRequest->setInvoiceId($this->invoiceId);
 
         $response = $this->uniPaymentClient->queryInvoices($queryInvoiceRequest);
         $this->assertEquals('OK', $response->getCode());
@@ -102,6 +105,7 @@ class UniPaymentClientTest extends TestCase
     {
         $response = $this->uniPaymentClient->getInvoiceById($this->invoiceId);
         $this->assertEquals('OK', $response->getCode());
+        //$this->assertEquals($this->order_id, $response->getData()->getOrderId());
     }
 
     /**
