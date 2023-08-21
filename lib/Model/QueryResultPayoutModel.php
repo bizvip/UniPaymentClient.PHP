@@ -6,9 +6,12 @@ use \ArrayAccess;
 use \UniPayment\Client\ObjectSerializer;
 
 /**
- * QueryInvoiceResponse Class
+ * QueryResultPayoutModel Class Doc Comment
+ *
+ * @category Class
+ * @package  UniPayment\Client
  */
-class QueryInvoiceResponse implements ModelInterface, ArrayAccess
+class QueryResultPayoutModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -17,7 +20,7 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $modelName = 'QueryInvoiceResponse';
+    protected static $modelName = 'QueryResultPayoutModel';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -25,9 +28,11 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $fieldTypes = [
-        'code' => 'string',
-        'msg' => 'string',
-        'data' => '\UniPayment\Client\Model\InvoicePageListModel'];
+        'models' => '\UniPayment\Client\Model\PayoutModel[]',
+        'total' => 'int',
+        'page_no' => 'int',
+        'page_count' => 'int'
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
@@ -35,16 +40,18 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $fieldFormats = [
-        'code' => null,
-        'msg' => null,
-        'data' => null];
+        'models' => null,
+        'total' => 'int32',
+        'page_no' => 'int32',
+        'page_count' => 'int32'
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
      *
      * @return array
      */
-    public static function fieldTypes(): array
+    public static function fieldTypes()
     {
         return self::$fieldTypes;
     }
@@ -54,7 +61,7 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function fieldFormats(): array
+    public static function fieldFormats()
     {
         return self::$fieldFormats;
     }
@@ -66,9 +73,11 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'msg' => 'msg',
-        'data' => 'data'];
+        'models' => 'models',
+        'total' => 'total',
+        'page_no' => 'page_no',
+        'page_count' => 'page_count'
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -76,9 +85,11 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'msg' => 'setMsg',
-        'data' => 'setData'];
+        'models' => 'setModels',
+        'total' => 'setTotal',
+        'page_no' => 'setPageNo',
+        'page_count' => 'setPageCount'
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -86,9 +97,11 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'msg' => 'getMsg',
-        'data' => 'getData'];
+        'models' => 'getModels',
+        'total' => 'getTotal',
+        'page_no' => 'getPageNo',
+        'page_count' => 'getPageCount'
+    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -96,7 +109,7 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function attributeMap(): array
+    public static function attributeMap()
     {
         return self::$attributeMap;
     }
@@ -106,7 +119,7 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function setters(): array
+    public static function setters()
     {
         return self::$setters;
     }
@@ -116,7 +129,7 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function getters(): array
+    public static function getters()
     {
         return self::$getters;
     }
@@ -126,29 +139,31 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return string
      */
-    public function getModelName(): string
+    public function getModelName()
     {
         return self::$modelName;
     }
 
+
     /**
      * Associative array for storing property values
      *
-     * @var array
+     * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
      *
-     * @param array|null $data Associated array of property values
+     * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = $data['code'] ?? null;
-        $this->container['msg'] = $data['msg'] ?? null;
-        $this->container['data'] = $data['data'] ?? null;
+        $this->container['models'] = isset($data['models']) ? $data['models'] : null;
+        $this->container['total'] = isset($data['total']) ? $data['total'] : null;
+        $this->container['page_no'] = isset($data['page_no']) ? $data['page_no'] : null;
+        $this->container['page_count'] = isset($data['page_count']) ? $data['page_count'] : null;
     }
 
     /**
@@ -156,9 +171,10 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return array invalid properties with reasons
      */
-    public function listInvalidProperties(): array
+    public function listInvalidProperties()
     {
         $invalidProperties = [];
+
         return $invalidProperties;
     }
 
@@ -168,79 +184,104 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return bool True if all properties are valid
      */
-    public function valid(): bool
+    public function valid()
     {
         return count($this->listInvalidProperties()) === 0;
     }
 
+
     /**
-     * Gets code
+     * Gets models
      *
-     * @return string
+     * @return \UniPayment\Client\Model\PayoutModel[]
      */
-    public function getCode(): string
+    public function getModels()
     {
-        return $this->container['code'];
+        return $this->container['models'];
     }
 
     /**
-     * Sets code
+     * Sets models
      *
-     * @param string $code code
+     * @param \UniPayment\Client\Model\PayoutModel[] $models models
      *
      * @return $this
      */
-    public function setCode(string $code): QueryInvoiceResponse
+    public function setModels($models)
     {
-        $this->container['code'] = $code;
+        $this->container['models'] = $models;
 
         return $this;
     }
 
     /**
-     * Gets msg
+     * Gets total
      *
-     * @return string
+     * @return int
      */
-    public function getMsg(): string
+    public function getTotal()
     {
-        return $this->container['msg'];
+        return $this->container['total'];
     }
 
     /**
-     * Sets msg
+     * Sets total
      *
-     * @param string $msg msg
+     * @param int $total total
      *
      * @return $this
      */
-    public function setMsg(string $msg): QueryInvoiceResponse
+    public function setTotal($total)
     {
-        $this->container['msg'] = $msg;
+        $this->container['total'] = $total;
 
         return $this;
     }
 
     /**
-     * Gets data
+     * Gets page_no
      *
-     * @return InvoicePageListModel
+     * @return int
      */
-    public function getData(): InvoicePageListModel
+    public function getPageNo()
     {
-        return $this->container['data'];
+        return $this->container['page_no'];
     }
 
     /**
-     * Sets data
+     * Sets page_no
      *
-     * @param InvoicePageListModel $data data
+     * @param int $page_no page_no
      *
      * @return $this
      */
-    public function setData(InvoicePageListModel $data): QueryInvoiceResponse
+    public function setPageNo($page_no)
     {
-        $this->container['data'] = $data;
+        $this->container['page_no'] = $page_no;
+
+        return $this;
+    }
+
+    /**
+     * Gets page_count
+     *
+     * @return int
+     */
+    public function getPageCount()
+    {
+        return $this->container['page_count'];
+    }
+
+    /**
+     * Sets page_count
+     *
+     * @param int $page_count page_count
+     *
+     * @return $this
+     */
+    public function setPageCount($page_count)
+    {
+        $this->container['page_count'] = $page_count;
 
         return $this;
     }
@@ -252,7 +293,8 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset): bool
+    #[\ReturnTypeWillChange]
+    public function offsetExists($offset)
     {
         return isset($this->container[$offset]);
     }
@@ -264,9 +306,10 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return $this->container[$offset] ?? null;
+        return isset($this->container[$offset]) ? $this->container[$offset] : null;
     }
 
     /**
@@ -277,6 +320,7 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -293,6 +337,7 @@ class QueryInvoiceResponse implements ModelInterface, ArrayAccess
      *
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);

@@ -8,7 +8,9 @@ namespace UniPayment\Client;
 require_once(__DIR__ . '/../vendor/autoload.php');
 
 use PHPUnit\Framework\TestCase;
+use UniPayment\Client\Model\CancelWithdrawalRequest;
 use UniPayment\Client\Model\CreateInvoiceRequest;
+use UniPayment\Client\Model\CreateWithdrawalRequest;
 use UniPayment\Client\Model\QueryInvoiceRequest;
 
 /**
@@ -18,9 +20,9 @@ class UniPaymentClientTest extends TestCase
 {
     private $uniPaymentClient;
 
-    private $clientId='399fc017-6305-4073-ab1b-7ca5d37be985';
-    private $clientSecret='94eWn6GdAWbWMmdTbTRa1e9HAZgs851Ry';
-    private $appId='e76535a0-32cf-448a-81e6-607c321dcaf9';
+    private $clientId = '399fc017-6305-4073-ab1b-7ca5d37be985';
+    private $clientSecret = '94eWn6GdAWbWMmdTbTRa1e9HAZgs851Ry';
+    private $appId = 'e76535a0-32cf-448a-81e6-607c321dcaf9';
     private $order_id = 'test_order_id';
     private $isSandbox = true;
     private $invoiceId = 'P8wMaXZJZx5VfgZ8nEZk7j';
@@ -78,7 +80,7 @@ class UniPaymentClientTest extends TestCase
         $createInvoiceRequest->setNotifyUrl("https://google.com");
         $createInvoiceRequest->setTitle("Test Invoice");
         $createInvoiceRequest->setDescription("Test Desc");
-        $createInvoiceRequest->setLang("en-US");
+        $createInvoiceRequest->setLang("en");
         $response = $this->uniPaymentClient->createInvoice($createInvoiceRequest);
         $this->assertEquals('OK', $response->getCode());
         $this->assertNotNull($response->getData()->getInvoiceUrl());
@@ -157,4 +159,84 @@ class UniPaymentClientTest extends TestCase
         $response = $this->uniPaymentClient->checkIpn($this->notify);
         $this->assertEquals('OK', $response->getCode());
     }
+
+    /**
+     * Test case for getWalletBalances
+     * @throws ApiException
+     */
+    public function testGetWalletBalances()
+    {
+        $response = $this->uniPaymentClient->getWalletBalances();
+        $this->assertEquals('OK', $response->getCode());
+    }
+
+    /**
+     * Test case for createWithdrawal
+     * @throws ApiException
+     */
+    public function testCreateWithdrawal()
+    {
+        $createWithdrawalRequest = new CreateWithdrawalRequest();
+        $createWithdrawalRequest->setAmount(1.01);
+        $createWithdrawalRequest->setNetwork("NETWORK_BSC");
+        $createWithdrawalRequest->setAutoConfirm(false);
+        $createWithdrawalRequest->setIncludeFee(true);
+        $createWithdrawalRequest->setAssetType("USDT");
+        $response = $this->uniPaymentClient->createWithdrawal($createWithdrawalRequest);
+        $this->assertEquals('OK', $response->getCode());
+    }
+
+    /**
+     * Test case for getWithdrawalById
+     * @throws ApiException
+     */
+    public function testGetWithdrawalById()
+    {
+        $response = $this->uniPaymentClient->getWithdrawalById("a4911dd9-2663-425b-952f-822a764099c1");
+        $this->assertEquals('OK', $response->getCode());
+    }
+
+    /**
+     * Test case for queryWithdrawals
+     * @throws ApiException
+     */
+    public function testQueryWithdrawals()
+    {
+        $response = $this->uniPaymentClient->queryWithdrawals();
+        $this->assertEquals('OK', $response->getCode());
+    }
+
+    /**
+     * Test case for cancelWithdrawal
+     * @throws ApiException
+     */
+    public function testCancelWithdrawal()
+    {
+        $cancelWithdrawalRequest = new CancelWithdrawalRequest();
+        //Withdrawal status should be pending when cancelling
+        $cancelWithdrawalRequest->setId("a4911dd9-2663-425b-952f-822a764099c1");
+        $response = $this->uniPaymentClient->cancelWithdrawal($cancelWithdrawalRequest);
+        $this->assertEquals('OK', $response->getCode());
+    }
+
+    /**
+     * Test case for queryPayouts
+     * @throws ApiException
+     */
+    public function testQueryPayouts()
+    {
+        $response = $this->uniPaymentClient->queryPayouts();
+        $this->assertEquals('OK', $response->getCode());
+    }
+
+    /**
+     * Test case for getPayoutById
+     * @throws ApiException
+     */
+    public function testGetPayoutById()
+    {
+        $response = $this->uniPaymentClient->getPayoutById("5d43f367-7766-41c0-90f2-4788b5316308");
+        $this->assertEquals('OK', $response->getCode());
+    }
+
 }
