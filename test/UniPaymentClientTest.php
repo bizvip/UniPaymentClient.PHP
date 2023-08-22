@@ -10,7 +10,9 @@ require_once(__DIR__ . '/../vendor/autoload.php');
 use PHPUnit\Framework\TestCase;
 use UniPayment\Client\Model\CancelWithdrawalRequest;
 use UniPayment\Client\Model\CreateInvoiceRequest;
+use UniPayment\Client\Model\CreatePayoutRequest;
 use UniPayment\Client\Model\CreateWithdrawalRequest;
+use UniPayment\Client\Model\PayoutRequestItem;
 use UniPayment\Client\Model\QueryInvoiceRequest;
 
 /**
@@ -220,12 +222,31 @@ class UniPaymentClientTest extends TestCase
     }
 
     /**
+     * Test case for createPayout
+     * @throws ApiException
+     */
+    public function testCreatePayout()
+    {
+        $createPayoutRequest = new CreatePayoutRequest();
+        $createPayoutRequest->setAssetType("BSC");
+        $createPayoutRequest->setNetwork("NETWORK_BSC");
+
+        $payoutRequestItem = new PayoutRequestItem();
+        $payoutRequestItem->setAmount(0.01);
+        $payoutRequestItem->setAddress("0xBe807Dddb074639cD9fA61b47676c064fc50D62C");
+        $createPayoutRequest->setItems(array($payoutRequestItem));
+        $response = $this->uniPaymentClient->createPayout($createPayoutRequest);
+        $this->assertEquals('OK', $response->getCode());
+    }
+
+    /**
      * Test case for queryPayouts
      * @throws ApiException
      */
     public function testQueryPayouts()
     {
         $response = $this->uniPaymentClient->queryPayouts();
+        print_r($response);
         $this->assertEquals('OK', $response->getCode());
     }
 
