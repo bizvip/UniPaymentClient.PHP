@@ -6,12 +6,12 @@ use \ArrayAccess;
 use \UniPayment\Client\ObjectSerializer;
 
 /**
- * ResponseInvoiceModel Class Doc Comment
+ * GetWithdrawalByIdResponse Class Doc Comment
  *
  * @category Class
  * @package  UniPayment\Client
  */
-class ResponseInvoiceModel implements ModelInterface, ArrayAccess
+class GetWithdrawalByIdResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResponseInvoiceModel implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $modelName = 'ResponseInvoiceModel';
+    protected static $modelName = 'GetWithdrawalByIdResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -30,7 +30,7 @@ class ResponseInvoiceModel implements ModelInterface, ArrayAccess
     protected static $fieldTypes = [
         'code' => 'string',
         'msg' => 'string',
-        'data' => '\UniPayment\Client\Model\InvoiceModel'
+        'data' => '\UniPayment\Client\Model\WithdrawalModel'
     ];
 
     /**
@@ -49,7 +49,7 @@ class ResponseInvoiceModel implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function fieldTypes(): array
+    public static function fieldTypes()
     {
         return self::$fieldTypes;
     }
@@ -59,7 +59,7 @@ class ResponseInvoiceModel implements ModelInterface, ArrayAccess
      *
      * @return array
      */
-    public static function fieldFormats(): array
+    public static function fieldFormats()
     {
         return self::$fieldFormats;
     }
@@ -235,7 +235,7 @@ class ResponseInvoiceModel implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \UniPayment\Client\Model\InvoiceModel
+     * @return \UniPayment\Client\Model\WithdrawalModel
      */
     public function getData()
     {
@@ -245,7 +245,7 @@ class ResponseInvoiceModel implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \UniPayment\Client\Model\InvoiceModel $data data
+     * @param \UniPayment\Client\Model\WithdrawalModel $data data
      *
      * @return $this
      */

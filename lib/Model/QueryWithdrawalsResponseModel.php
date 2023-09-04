@@ -6,12 +6,12 @@ use \ArrayAccess;
 use \UniPayment\Client\ObjectSerializer;
 
 /**
- * ResponseQueryResultWithdrawalModel Class Doc Comment
+ * QueryWithdrawalsResponseModel Class Doc Comment
  *
  * @category Class
  * @package  UniPayment\Client
  */
-class ResponseQueryResultWithdrawalModel implements ModelInterface, ArrayAccess
+class QueryWithdrawalsResponseModel implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResponseQueryResultWithdrawalModel implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $modelName = 'ResponseQueryResultWithdrawalModel';
+    protected static $modelName = 'QueryWithdrawalsResponseModel';
 
     /**
      * Array of property to type mappings. Used for (de)serialization

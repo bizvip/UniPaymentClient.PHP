@@ -6,12 +6,12 @@ use \ArrayAccess;
 use \UniPayment\Client\ObjectSerializer;
 
 /**
- * ResponseListBalanceModel Class Doc Comment
+ * GetPayoutByIdResponse Class Doc Comment
  *
  * @category Class
  * @package  UniPayment\Client
  */
-class ResponseListBalanceModel implements ModelInterface, ArrayAccess
+class GetPayoutByIdResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResponseListBalanceModel implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $modelName = 'ResponseListBalanceModel';
+    protected static $modelName = 'GetPayoutByIdResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -30,7 +30,7 @@ class ResponseListBalanceModel implements ModelInterface, ArrayAccess
     protected static $fieldTypes = [
         'code' => 'string',
         'msg' => 'string',
-        'data' => '\UniPayment\Client\Model\BalanceModel[]'
+        'data' => '\UniPayment\Client\Model\PayoutDetailModel'
     ];
 
     /**
@@ -235,7 +235,7 @@ class ResponseListBalanceModel implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return \UniPayment\Client\Model\BalanceModel[]
+     * @return \UniPayment\Client\Model\PayoutDetailModel
      */
     public function getData()
     {
@@ -245,7 +245,7 @@ class ResponseListBalanceModel implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param \UniPayment\Client\Model\BalanceModel[] $data data
+     * @param \UniPayment\Client\Model\PayoutDetailModel $data data
      *
      * @return $this
      */

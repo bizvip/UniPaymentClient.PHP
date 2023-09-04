@@ -52,7 +52,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'unipayment_sdk_php/1.0.2';
+    protected $userAgent = 'unipayment_sdk_php/1.1.0';
 
     /**
      * Debug switch (default set to false)

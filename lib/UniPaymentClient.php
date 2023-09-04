@@ -12,22 +12,25 @@ use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
 use UniPayment\Client\Model\CancelWithdrawalRequest;
+use UniPayment\Client\Model\CancelWithdrawalResponse;
 use UniPayment\Client\Model\CreateInvoiceRequest;
+use UniPayment\Client\Model\CreateInvoiceResponse;
 use UniPayment\Client\Model\CreatePayoutRequest;
+use UniPayment\Client\Model\CreatePayoutResponse;
 use UniPayment\Client\Model\CreateWithdrawalRequest;
+use UniPayment\Client\Model\CreateWithdrawalResponse;
 use UniPayment\Client\Model\GetCurrenciesResponse;
 use UniPayment\Client\Model\GetExchangeRateByCurrencyPairResponse;
 use UniPayment\Client\Model\GetExchangeRateByFiatCurrencyResponse;
 use UniPayment\Client\Model\GetInvoiceByIdResponse;
+use UniPayment\Client\Model\GetPayoutByIdResponse;
+use UniPayment\Client\Model\GetWalletBalancesResponse;
+use UniPayment\Client\Model\GetWithdrawalByIdResponse;
 use UniPayment\Client\Model\QueryInvoiceRequest;
 use UniPayment\Client\Model\QueryInvoiceResponse;
-use UniPayment\Client\Model\ResponseCancelWithdrawal;
-use UniPayment\Client\Model\ResponseInvoiceModel;
-use UniPayment\Client\Model\ResponseListBalanceModel;
-use UniPayment\Client\Model\ResponsePayoutDetailModel;
-use UniPayment\Client\Model\ResponseQueryResultPayoutModel;
-use UniPayment\Client\Model\ResponseQueryResultWithdrawalModel;
-use UniPayment\Client\Model\ResponseWithdrawalModel;
+use UniPayment\Client\Model\QueryPayoutsResponseModel;
+use UniPayment\Client\Model\QueryWithdrawalsResponseModel;
+
 
 function build_query($arg)
 {
@@ -84,7 +87,7 @@ class UniPaymentClient
      *
      * @param CreateInvoiceRequest $body body (required)
      *
-     * @return ResponseInvoiceModel
+     * @return CreateInvoiceResponse
      * @throws \InvalidArgumentException
      * @throws ApiException|\GuzzleHttp\Exception\GuzzleException on non-2xx response
      */
@@ -99,7 +102,7 @@ class UniPaymentClient
      *
      * @param CreateInvoiceRequest $body (required)
      *
-     * @return array of ResponseInvoiceModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of CreateInvoiceResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException|\GuzzleHttp\Exception\GuzzleException on non-2xx response
      */
@@ -157,7 +160,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ResponseInvoiceModel',
+                        'CreateInvoiceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1696,7 +1699,7 @@ class UniPaymentClient
      * Operation queryIps
      *
      *
-     * @return ResponseListString
+     * @return String
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -2211,7 +2214,7 @@ class UniPaymentClient
      * Operation getWalletBalances
      *
      *
-     * @return ResponseListBalanceModel
+     * @return GetWalletBalancesResponse
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -2224,13 +2227,13 @@ class UniPaymentClient
     /**
      * Operation getWalletBalancesWithHttpInfo
      *
-     * @return array of \UniPayment\Client\Model\ResponseListBalanceModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \UniPayment\Client\Model\GetWalletBalancesResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function getWalletBalancesWithHttpInfo()
     {
-        $returnType = '\UniPayment\Client\Model\ResponseListBalanceModel';
+        $returnType = '\UniPayment\Client\Model\GetWalletBalancesResponse';
         $request = $this->getWalletBalancesRequest();
 
         try {
@@ -2282,7 +2285,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponseListBalanceModel',
+                        '\UniPayment\Client\Model\GetWalletBalancesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2318,7 +2321,7 @@ class UniPaymentClient
      */
     public function getWalletBalancesAsyncWithHttpInfo()
     {
-        $returnType = '\UniPayment\Client\Model\ResponseListBalanceModel';
+        $returnType = '\UniPayment\Client\Model\GetWalletBalancesResponse';
         $request = $this->getWalletBalancesRequest();
 
         return $this->client
@@ -2454,7 +2457,7 @@ class UniPaymentClient
      *
      * @param CreateWithdrawalRequest $request request (required)
      *
-     * @return ResponseWithdrawalModel
+     * @return CreateWithdrawalResponse
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -2469,13 +2472,13 @@ class UniPaymentClient
      *
      * @param CreateWithdrawalRequest $request (required)
      *
-     * @return array of \UniPayment\Client\Model\ResponseWithdrawalModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of CreateWithdrawalResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function createWithdrawalWithHttpInfo($request)
     {
-        $returnType = '\UniPayment\Client\Model\ResponseWithdrawalModel';
+        $returnType = '\UniPayment\Client\Model\CreateWithdrawalResponse';
         $request = $this->createWithdrawalRequest($request);
 
         try {
@@ -2527,7 +2530,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponseWithdrawalModel',
+                        '\UniPayment\Client\Model\CreateWithdrawalResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2567,7 +2570,7 @@ class UniPaymentClient
      */
     public function createWithdrawalAsyncWithHttpInfo($request)
     {
-        $returnType = '\UniPayment\Client\Model\ResponseWithdrawalModel';
+        $returnType = '\UniPayment\Client\Model\CreateWithdrawalResponse';
         $request = $this->createWithdrawalRequest($request);
 
         return $this->client
@@ -2713,7 +2716,7 @@ class UniPaymentClient
      *
      * @param string $withdrawal_id withdrawal_id (required)
      *
-     * @return ResponseWithdrawalModel
+     * @return GetWithdrawalByIdResponse
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -2728,13 +2731,13 @@ class UniPaymentClient
      *
      * @param string $withdrawal_id (required)
      *
-     * @return array of \UniPayment\Client\Model\ResponseWithdrawalModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of GetWithdrawalByIdResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function getWithdrawalByIdWithHttpInfo($withdrawal_id)
     {
-        $returnType = '\UniPayment\Client\Model\ResponseWithdrawalModel';
+        $returnType = '\UniPayment\Client\Model\GetWithdrawalByIdResponse';
         $request = $this->getWithdrawalByIdRequest($withdrawal_id);
 
         try {
@@ -2786,7 +2789,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponseWithdrawalModel',
+                        '\UniPayment\Client\Model\GetWithdrawalByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2824,7 +2827,7 @@ class UniPaymentClient
      */
     public function getWithdrawalByIdAsyncWithHttpInfo($withdrawal_id)
     {
-        $returnType = '\UniPayment\Client\Model\ResponseWithdrawalModel';
+        $returnType = '\UniPayment\Client\Model\GetWithdrawalByIdResponse';
         $request = $this->getWithdrawalByIdRequest($withdrawal_id);
 
         return $this->client
@@ -2974,7 +2977,7 @@ class UniPaymentClient
     /**
      * Operation queryWithdrawals
      *
-     * @return ResponseQueryResultWithdrawalModel
+     * @return QueryWithdrawalsResponseModel
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -2987,13 +2990,13 @@ class UniPaymentClient
     /**
      * Operation queryWithdrawalsWithHttpInfo
      *
-     * @return array of \UniPayment\Client\Model\ResponseQueryResultWithdrawalModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \UniPayment\Client\Model\QueryWithdrawalsResponseModel, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function queryWithdrawalsWithHttpInfo()
     {
-        $returnType = '\UniPayment\Client\Model\ResponseQueryResultWithdrawalModel';
+        $returnType = '\UniPayment\Client\Model\QueryWithdrawalsResponseModel';
         $request = $this->queryWithdrawalsRequest();
 
         try {
@@ -3045,7 +3048,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponseQueryResultWithdrawalModel',
+                        '\UniPayment\Client\Model\QueryWithdrawalsResponseModel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3079,7 +3082,7 @@ class UniPaymentClient
      */
     public function queryWithdrawalsAsyncWithHttpInfo()
     {
-        $returnType = '\UniPayment\Client\Model\ResponseQueryResultWithdrawalModel';
+        $returnType = '\UniPayment\Client\Model\QueryWithdrawalsResponseModel';
         $request = $this->queryWithdrawalsRequest();
 
         return $this->client
@@ -3213,7 +3216,7 @@ class UniPaymentClient
      *
      * @param CancelWithdrawalRequest $request request (required)
      *
-     * @return ResponseCancelWithdrawal
+     * @return CancelWithdrawalResponse
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -3228,13 +3231,13 @@ class UniPaymentClient
      *
      * @param CancelWithdrawalRequest $request (required)
      *
-     * @return array of \UniPayment\Client\Model\ResponseCancelWithdrawal, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \UniPayment\Client\Model\CancelWithdrawalResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function cancelWithdrawalWithHttpInfo($request)
     {
-        $returnType = '\UniPayment\Client\Model\ResponseCancelWithdrawal';
+        $returnType = '\UniPayment\Client\Model\CancelWithdrawalResponse';
         $request = $this->cancelWithdrawalRequest($request);
 
         try {
@@ -3286,7 +3289,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponseCancelWithdrawal',
+                        '\UniPayment\Client\Model\CancelWithdrawalResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3324,7 +3327,7 @@ class UniPaymentClient
      */
     public function cancelWithdrawalAsyncWithHttpInfo($request)
     {
-        $returnType = '\UniPayment\Client\Model\ResponseCancelWithdrawal';
+        $returnType = '\UniPayment\Client\Model\CancelWithdrawalResponse';
         $request = $this->cancelWithdrawalRequest($request);
 
         return $this->client
@@ -3470,7 +3473,7 @@ class UniPaymentClient
      *
      * @param CreatePayoutRequest $request request (required)
      *
-     * @return ResponsePayoutDetailModel
+     * @return CreatePayoutResponse
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -3485,13 +3488,13 @@ class UniPaymentClient
      *
      * @param CreatePayoutRequest $request (required)
      *
-     * @return array of \UniPayment\Client\Model\ResponsePayoutDetailModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \UniPayment\Client\Model\CreatePayoutResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function createPayoutWithHttpInfo($request)
     {
-        $returnType = '\UniPayment\Client\Model\ResponsePayoutDetailModel';
+        $returnType = '\UniPayment\Client\Model\CreatePayoutResponse';
         $request = $this->createPayoutRequest($request);
 
         try {
@@ -3543,7 +3546,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponsePayoutDetailModel',
+                        '\UniPayment\Client\Model\CreatePayoutResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3581,7 +3584,7 @@ class UniPaymentClient
      */
     public function createPayoutAsyncWithHttpInfo($request)
     {
-        $returnType = '\UniPayment\Client\Model\ResponsePayoutDetailModel';
+        $returnType = '\UniPayment\Client\Model\CreatePayoutResponse';
         $request = $this->createPayoutRequest($request);
 
         return $this->client
@@ -3727,7 +3730,7 @@ class UniPaymentClient
      *
      * @param string $payout_id payout_id (required)
      *
-     * @return ResponsePayoutDetailModel
+     * @return GetPayoutByIdResponse
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -3742,13 +3745,13 @@ class UniPaymentClient
      *
      * @param string $payout_id (required)
      *
-     * @return array of \UniPayment\Client\Model\ResponsePayoutDetailModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of GetPayoutByIdResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function getPayoutByIdWithHttpInfo($payout_id)
     {
-        $returnType = '\UniPayment\Client\Model\ResponsePayoutDetailModel';
+        $returnType = '\UniPayment\Client\Model\GetPayoutByIdResponse';
         $request = $this->getPayoutByIdRequest($payout_id);
 
         try {
@@ -3800,7 +3803,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponsePayoutDetailModel',
+                        '\UniPayment\Client\Model\GetPayoutByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3838,7 +3841,7 @@ class UniPaymentClient
      */
     public function getPayoutByIdAsyncWithHttpInfo($payout_id)
     {
-        $returnType = '\UniPayment\Client\Model\ResponsePayoutDetailModel';
+        $returnType = '\UniPayment\Client\Model\GetPayoutByIdResponse';
         $request = $this->getPayoutByIdRequest($payout_id);
 
         return $this->client
@@ -3988,7 +3991,7 @@ class UniPaymentClient
     /**
      * Operation queryPayouts
      *
-     * @return ResponseQueryResultPayoutModel
+     * @return QueryPayoutsResponseModel
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -4001,13 +4004,13 @@ class UniPaymentClient
     /**
      * Operation queryPayoutsWithHttpInfo
      *
-     * @return array of \UniPayment\Client\Model\ResponseQueryResultPayoutModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of QueryPayoutsResponseModel, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
     public function queryPayoutsWithHttpInfo()
     {
-        $returnType = '\UniPayment\Client\Model\ResponseQueryResultPayoutModel';
+        $returnType = '\UniPayment\Client\Model\QueryPayoutsResponseModel';
         $request = $this->queryPayoutsRequest();
 
         try {
@@ -4059,7 +4062,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\UniPayment\Client\Model\ResponseQueryResultPayoutModel',
+                        '\UniPayment\Client\Model\QueryPayoutsResponseModel',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -4093,7 +4096,7 @@ class UniPaymentClient
      */
     public function queryPayoutsAsyncWithHttpInfo()
     {
-        $returnType = '\UniPayment\Client\Model\ResponseQueryResultPayoutModel';
+        $returnType = '\UniPayment\Client\Model\QueryPayoutsResponseModel';
         $request = $this->queryPayoutsRequest();
 
         return $this->client

@@ -6,12 +6,12 @@ use \ArrayAccess;
 use \UniPayment\Client\ObjectSerializer;
 
 /**
- * ResponseCancelWithdrawal Class Doc Comment
+ * CreateWithdrawalResponse Class Doc Comment
  *
  * @category Class
  * @package  UniPayment\Client
  */
-class ResponseCancelWithdrawal implements ModelInterface, ArrayAccess
+class CreateWithdrawalResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -20,7 +20,7 @@ class ResponseCancelWithdrawal implements ModelInterface, ArrayAccess
      *
      * @var string
      */
-    protected static $modelName = 'ResponseCancelWithdrawal';
+    protected static $modelName = 'CreateWithdrawalResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -30,7 +30,7 @@ class ResponseCancelWithdrawal implements ModelInterface, ArrayAccess
     protected static $fieldTypes = [
         'code' => 'string',
         'msg' => 'string',
-        'data' => 'object'
+        'data' => '\UniPayment\Client\Model\WithdrawalModel'
     ];
 
     /**
@@ -235,7 +235,7 @@ class ResponseCancelWithdrawal implements ModelInterface, ArrayAccess
     /**
      * Gets data
      *
-     * @return object
+     * @return \UniPayment\Client\Model\WithdrawalModel
      */
     public function getData()
     {
@@ -245,7 +245,7 @@ class ResponseCancelWithdrawal implements ModelInterface, ArrayAccess
     /**
      * Sets data
      *
-     * @param object $data data
+     * @param \UniPayment\Client\Model\WithdrawalModel $data data
      *
      * @return $this
      */
