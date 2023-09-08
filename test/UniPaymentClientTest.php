@@ -109,6 +109,7 @@ class UniPaymentClientTest extends TestCase
     {
         $response = $this->uniPaymentClient->getInvoiceById($this->invoiceId);
         $this->assertEquals('OK', $response->getCode());
+        $this->assertNotNull($response->getData()->getInvoiceUrl());
         //$this->assertEquals($this->order_id, $response->getData()->getOrderId());
     }
 

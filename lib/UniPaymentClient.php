@@ -1175,7 +1175,7 @@ class UniPaymentClient
      *
      * @param string $invoice_id (required)
      *
-     * @return array of ResponseInvoiceDetailModel, HTTP status code, HTTP response headers (array of strings)
+     * @return array of GetInvoiceByIdResponse, HTTP status code, HTTP response headers (array of strings)
      * @throws \InvalidArgumentException
      * @throws ApiException on non-2xx response
      */
@@ -1233,7 +1233,7 @@ class UniPaymentClient
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        'ResponseInvoiceDetailModel',
+                        'GetInvoiceByIdResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

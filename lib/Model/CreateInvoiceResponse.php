@@ -32,7 +32,7 @@ class CreateInvoiceResponse implements ModelInterface, ArrayAccess
     protected static $fieldTypes = [
         'code' => 'string',
         'msg' => 'string',
-        'data' => '\UniPayment\Client\Model\InvoiceModel'];
+        'data' => '\UniPayment\Client\Model\UniPayment\Client\Model\InvoiceModel'];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
