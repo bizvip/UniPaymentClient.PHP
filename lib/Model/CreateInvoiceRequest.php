@@ -34,6 +34,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         'lang' => 'string',
         'price_amount' => 'double',
         'price_currency' => 'string',
+        'network' => 'string',
         'pay_currency' => 'string',
         'notify_url' => 'string',
         'redirect_url' => 'string',
@@ -53,6 +54,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         'lang' => null,
         'price_amount' => 'double',
         'price_currency' => null,
+        'network' => null,
         'pay_currency' => null,
         'notify_url' => null,
         'redirect_url' => null,
@@ -93,6 +95,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         'lang' => 'lang',
         'price_amount' => 'price_amount',
         'price_currency' => 'price_currency',
+        'network' => 'network',
         'pay_currency' => 'pay_currency',
         'notify_url' => 'notify_url',
         'redirect_url' => 'redirect_url',
@@ -112,6 +115,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         'lang' => 'setLang',
         'price_amount' => 'setPriceAmount',
         'price_currency' => 'setPriceCurrency',
+        'network' => 'setNetwork',
         'pay_currency' => 'setPayCurrency',
         'notify_url' => 'setNotifyUrl',
         'redirect_url' => 'setRedirectUrl',
@@ -131,6 +135,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         'lang' => 'getLang',
         'price_amount' => 'getPriceAmount',
         'price_currency' => 'getPriceCurrency',
+        'network' => 'getNetwork',
         'pay_currency' => 'getPayCurrency',
         'notify_url' => 'getNotifyUrl',
         'redirect_url' => 'getRedirectUrl',
@@ -217,6 +222,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         $this->container['lang'] = $data['lang'] ?? null;
         $this->container['price_amount'] = $data['price_amount'] ?? null;
         $this->container['price_currency'] = $data['price_currency'] ?? null;
+        $this->container['network'] = $data['network'] ?? null;
         $this->container['pay_currency'] = $data['pay_currency'] ?? null;
         $this->container['notify_url'] = $data['notify_url'] ?? null;
         $this->container['redirect_url'] = $data['redirect_url'] ?? null;
@@ -396,6 +402,30 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
     public function setPriceCurrency(string $price_currency): CreateInvoiceRequest
     {
         $this->container['price_currency'] = $price_currency;
+
+        return $this;
+    }
+
+     /**
+     * Gets network
+     *
+     * @return string
+     */
+    public function getNetwork()
+    {
+        return $this->container['network'];
+    }
+
+    /**
+     * Sets network
+     *
+     * @param string $network network
+     *
+     * @return $this
+     */
+    public function setNetwork(string $network): CreateInvoiceRequest
+    {
+        $this->container['network'] = $network;
 
         return $this;
     }
