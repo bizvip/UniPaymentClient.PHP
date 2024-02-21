@@ -255,6 +255,7 @@ class GetExchangeRateByFiatCurrencyResponse implements ModelInterface, ArrayAcce
      *
      * @return boolean
      */
+    #[\ReturnTypeWillChange]
     public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
