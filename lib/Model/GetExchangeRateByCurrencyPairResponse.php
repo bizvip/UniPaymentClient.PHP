@@ -269,6 +269,7 @@ class GetExchangeRateByCurrencyPairResponse implements ModelInterface, ArrayAcce
      *
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->container[$offset] ?? null;
