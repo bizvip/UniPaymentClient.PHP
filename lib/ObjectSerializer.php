@@ -14,10 +14,8 @@ class ObjectSerializer
 {
     /**
      * Serialize data
-     *
-     * @param mixed $data the data to serialize
-     * @param string|null $format the format of the field type of the data
-     *
+     * @param  mixed  $data          the data to serialize
+     * @param  string|null  $format  the format of the field type of the data
      * @return string|array|object serialized form of $data
      */
     public static function sanitizeForSerialization($data, string $format = null)
@@ -30,17 +28,29 @@ class ObjectSerializer
             foreach ($data as $property => $value) {
                 $data[$property] = self::sanitizeForSerialization($value);
             }
+
             return $data;
         } elseif (is_object($data)) {
-            $values = [];
+            $values  = [];
             $formats = $data::fieldFormats();
             foreach ($data::fieldTypes() as $property => $fieldType) {
                 $getter = $data::getters()[$property];
-                $value = $data->$getter();
-                if ($value !== null
-                    && !in_array($fieldType, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)
-                    && method_exists($fieldType, 'getAllowableEnumValues')
-                    && !in_array($value, $fieldType::getAllowableEnumValues())) {
+                $value  = $data->$getter();
+                if ($value !== null && !in_array($fieldType, [
+                        'DateTime',
+                        'bool',
+                        'boolean',
+                        'byte',
+                        'double',
+                        'float',
+                        'int',
+                        'integer',
+                        'mixed',
+                        'number',
+                        'object',
+                        'string',
+                        'void',
+                    ], true) && method_exists($fieldType, 'getAllowableEnumValues') && !in_array($value, $fieldType::getAllowableEnumValues())) {
                     $imploded = implode("', '", $fieldType::getAllowableEnumValues());
                     throw new \InvalidArgumentException("Invalid value for enum '$fieldType', must be one of: '$imploded'");
                 }
@@ -48,6 +58,7 @@ class ObjectSerializer
                     $values[$data::attributeMap()[$property]] = self::sanitizeForSerialization($value, $fieldType, $formats[$property]);
                 }
             }
+
             return (object)$values;
         } else {
             return (string)$data;
@@ -57,9 +68,7 @@ class ObjectSerializer
     /**
      * Sanitize filename by removing path.
      * e.g. ../../sun.gif becomes sun.gif
-     *
-     * @param string $filename filename to be sanitized
-     *
+     * @param  string  $filename  filename to be sanitized
      * @return string the sanitized filename
      */
     public static function sanitizeFilename($filename)
@@ -74,9 +83,7 @@ class ObjectSerializer
     /**
      * Take value and turn it into a string suitable for inclusion in
      * the path, by url-encoding.
-     *
-     * @param string $value a string which will be part of the path
-     *
+     * @param  string  $value  a string which will be part of the path
      * @return string the serialized object
      */
     public static function toPathValue($value)
@@ -89,10 +96,8 @@ class ObjectSerializer
      * the query, by imploding comma-separated if it's an object.
      * If it's a string, pass through unchanged. It will be url-encoded
      * later.
-     *
-     * @param string[]|string|\DateTime $object an object to be serialized to a string
-     * @param string|null $format the format of the parameter
-     *
+     * @param  string[]|string|\DateTime  $object  an object to be serialized to a string
+     * @param  string|null  $format                the format of the parameter
      * @return string the serialized object
      */
     public static function toQueryValue($object, string $format = null)
@@ -108,9 +113,7 @@ class ObjectSerializer
      * Take value and turn it into a string suitable for inclusion in
      * the header. If it's a string, pass through unchanged
      * If it's a datetime object, format it in RFC3339
-     *
-     * @param string $value a string which will be part of the header
-     *
+     * @param  string  $value  a string which will be part of the header
      * @return string the header string
      */
     public static function toHeaderValue(string $value)
@@ -122,9 +125,7 @@ class ObjectSerializer
      * Take value and turn it into a string suitable for inclusion in
      * the http body (form parameter). If it's a string, pass through unchanged
      * If it's a datetime object, format it in RFC3339
-     *
-     * @param string|\SplFileObject $value the value of the form parameter
-     *
+     * @param  string|\SplFileObject  $value  the value of the form parameter
      * @return string the form string
      */
     public static function toFormValue($value)
@@ -141,10 +142,8 @@ class ObjectSerializer
      * the parameter. If it's a string, pass through unchanged
      * If it's a datetime object, format it in RFC3339
      * If it's a date, format it in Y-m-d
-     *
-     * @param string|\DateTime $value the value of the parameter
-     * @param string|null $format the format of the parameter
-     *
+     * @param  string|\DateTime  $value  the value of the parameter
+     * @param  string|null  $format      the format of the parameter
      * @return string the header string
      */
     public static function toString($value, string $format = null)
@@ -158,12 +157,10 @@ class ObjectSerializer
 
     /**
      * Serialize an array to a string.
-     *
-     * @param array $collection collection to serialize to a string
-     * @param string $collectionFormat the format use for serialization (csv,
-     * ssv, tsv, pipes, multi)
-     * @param bool $allowCollectionFormatMulti allow collection format to be a multidimensional array
-     *
+     * @param  array  $collection                 collection to serialize to a string
+     * @param  string  $collectionFormat          the format use for serialization (csv,
+     *                                            ssv, tsv, pipes, multi)
+     * @param  bool  $allowCollectionFormatMulti  allow collection format to be a multidimensional array
      * @return string
      */
     public static function serializeCollection(array $collection, string $collectionFormat, bool $allowCollectionFormatMulti = false): string
@@ -192,10 +189,9 @@ class ObjectSerializer
 
     /**
      * Deserialize a JSON string into an object
-     *
-     * @param mixed $data object or primitive to be deserialized
-     * @param string $class class name is passed as a string
-     * @param null $httpHeaders HTTP headers
+     * @param  mixed  $data        object or primitive to be deserialized
+     * @param  string  $class      class name is passed as a string
+     * @param  null  $httpHeaders  HTTP headers
      * @return object|array|null an single or an array of $class instances
      * @throws Exception
      */
@@ -204,25 +200,28 @@ class ObjectSerializer
         if (null === $data) {
             return null;
         } elseif (substr($class, 0, 4) === 'map[') { // for associative array e.g. map[string,int]
-            $inner = substr($class, 4, -1);
+            $inner        = substr($class, 4, -1);
             $deserialized = [];
             if (strrpos($inner, ",") !== false) {
                 $subClass_array = explode(',', $inner, 2);
-                $subClass = $subClass_array[1];
+                $subClass       = $subClass_array[1];
                 foreach ($data as $key => $value) {
                     $deserialized[$key] = self::deserialize($value, $subClass, null);
                 }
             }
+
             return $deserialized;
         } elseif (strcasecmp(substr($class, -2), '[]') === 0) {
             $subClass = substr($class, 0, -2);
-            $values = [];
+            $values   = [];
             foreach ($data as $key => $value) {
                 $values[] = self::deserialize($value, $subClass, null);
             }
+
             return $values;
         } elseif ($class === 'object') {
             settype($data, 'array');
+
             return $data;
         } elseif ($class === '\DateTime') {
             // Some API's return an invalid, empty string as a
@@ -236,16 +235,31 @@ class ObjectSerializer
             } else {
                 return null;
             }
-        } elseif (in_array($class, ['DateTime', 'bool', 'boolean', 'byte', 'double', 'float', 'int', 'integer', 'mixed', 'number', 'object', 'string', 'void'], true)) {
+        } elseif (in_array($class, [
+            'DateTime',
+            'bool',
+            'boolean',
+            'byte',
+            'double',
+            'float',
+            'int',
+            'integer',
+            'mixed',
+            'number',
+            'object',
+            'string',
+            'void',
+        ], true)) {
             settype($data, $class);
+
             return $data;
         } elseif ($class === '\SplFileObject') {
             /** @var \Psr\Http\Message\StreamInterface $data */
 
             // determine file name
-            if (array_key_exists('Content-Disposition', $httpHeaders) &&
-                preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)) {
-                $filename = Configuration::getDefaultConfiguration()->getTempFolderPath() . DIRECTORY_SEPARATOR . self::sanitizeFilename($match[1]);
+            if (array_key_exists('Content-Disposition', $httpHeaders) && preg_match('/inline; filename=[\'"]?([^\'"\s]+)[\'"]?$/i', $httpHeaders['Content-Disposition'], $match)) {
+                $filename = Configuration::getDefaultConfiguration()
+                        ->getTempFolderPath().DIRECTORY_SEPARATOR.self::sanitizeFilename($match[1]);
             } else {
                 $filename = tempnam(Configuration::getDefaultConfiguration()->getTempFolderPath(), '');
             }
@@ -262,12 +276,13 @@ class ObjectSerializer
                 $imploded = implode("', '", $class::getAllowableEnumValues());
                 throw new \InvalidArgumentException("Invalid value for enum '$class', must be one of: '$imploded'");
             }
+
             return $data;
         } else {
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '{{invokerPackage}}\Model\\' . $data->{$discriminator};
+                $subclass = '{{invokerPackage}}\Model\\'.$data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }
@@ -285,6 +300,7 @@ class ObjectSerializer
                     $instance->$propertySetter(self::deserialize($propertyValue, $type, null));
                 }
             }
+
             return $instance;
         }
     }

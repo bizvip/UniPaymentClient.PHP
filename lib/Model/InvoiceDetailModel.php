@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * InvoiceDetailModel Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,64 +16,62 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'InvoiceDetailModel';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'transactions' => '\UniPayment\Client\Model\InvoiceTransactionModel[]',
-        'network' => 'string',
-        'address' => 'string',
-        'app_id' => 'string',
-        'invoice_id' => 'string',
-        'order_id' => 'string',
-        'price_amount' => 'double',
-        'price_currency' => 'string',
-        'pay_amount' => 'double',
-        'pay_currency' => 'string',
-        'exchange_rate' => 'double',
-        'paid_amount' => 'double',
-        'create_time' => '\DateTime',
+        'transactions'    => '\UniPayment\Client\Model\InvoiceTransactionModel[]',
+        'network'         => 'string',
+        'address'         => 'string',
+        'app_id'          => 'string',
+        'invoice_id'      => 'string',
+        'order_id'        => 'string',
+        'price_amount'    => 'double',
+        'price_currency'  => 'string',
+        'pay_amount'      => 'double',
+        'pay_currency'    => 'string',
+        'exchange_rate'   => 'double',
+        'paid_amount'     => 'double',
+        'create_time'     => '\DateTime',
         'expiration_time' => '\DateTime',
-        'confirm_speed' => 'string',
-        'status' => 'string',
-        'error_status' => 'string',
-        'invoice_url' => 'string'];
+        'confirm_speed'   => 'string',
+        'status'          => 'string',
+        'error_status'    => 'string',
+        'invoice_url'     => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'transactions' => null,
-        'network' => null,
-        'address' => null,
-        'app_id' => null,
-        'invoice_id' => null,
-        'order_id' => null,
-        'price_amount' => 'double',
-        'price_currency' => null,
-        'pay_amount' => 'double',
-        'pay_currency' => null,
-        'exchange_rate' => 'double',
-        'paid_amount' => 'double',
-        'create_time' => 'date-time',
+        'transactions'    => null,
+        'network'         => null,
+        'address'         => null,
+        'app_id'          => null,
+        'invoice_id'      => null,
+        'order_id'        => null,
+        'price_amount'    => 'double',
+        'price_currency'  => null,
+        'pay_amount'      => 'double',
+        'pay_currency'    => null,
+        'exchange_rate'   => 'double',
+        'paid_amount'     => 'double',
+        'create_time'     => 'date-time',
         'expiration_time' => 'date-time',
-        'confirm_speed' => null,
-        'status' => null,
-        'error_status' => null,
-        'invoice_url' => null];
+        'confirm_speed'   => null,
+        'status'          => null,
+        'error_status'    => null,
+        'invoice_url'     => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes(): array
@@ -84,7 +81,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats(): array
@@ -95,83 +91,82 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'transactions' => 'transactions',
-        'network' => 'network',
-        'address' => 'address',
-        'app_id' => 'app_id',
-        'invoice_id' => 'invoice_id',
-        'order_id' => 'order_id',
-        'price_amount' => 'price_amount',
-        'price_currency' => 'price_currency',
-        'pay_amount' => 'pay_amount',
-        'pay_currency' => 'pay_currency',
-        'exchange_rate' => 'exchange_rate',
-        'paid_amount' => 'paid_amount',
-        'create_time' => 'create_time',
+        'transactions'    => 'transactions',
+        'network'         => 'network',
+        'address'         => 'address',
+        'app_id'          => 'app_id',
+        'invoice_id'      => 'invoice_id',
+        'order_id'        => 'order_id',
+        'price_amount'    => 'price_amount',
+        'price_currency'  => 'price_currency',
+        'pay_amount'      => 'pay_amount',
+        'pay_currency'    => 'pay_currency',
+        'exchange_rate'   => 'exchange_rate',
+        'paid_amount'     => 'paid_amount',
+        'create_time'     => 'create_time',
         'expiration_time' => 'expiration_time',
-        'confirm_speed' => 'confirm_speed',
-        'status' => 'status',
-        'error_status' => 'error_status',
-        'invoice_url' => 'invoice_url'];
+        'confirm_speed'   => 'confirm_speed',
+        'status'          => 'status',
+        'error_status'    => 'error_status',
+        'invoice_url'     => 'invoice_url',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'transactions' => 'setTransactions',
-        'network' => 'setNetwork',
-        'address' => 'setAddress',
-        'app_id' => 'setAppId',
-        'invoice_id' => 'setInvoiceId',
-        'order_id' => 'setOrderId',
-        'price_amount' => 'setPriceAmount',
-        'price_currency' => 'setPriceCurrency',
-        'pay_amount' => 'setPayAmount',
-        'pay_currency' => 'setPayCurrency',
-        'exchange_rate' => 'setExchangeRate',
-        'paid_amount' => 'setPaidAmount',
-        'create_time' => 'setCreateTime',
+        'transactions'    => 'setTransactions',
+        'network'         => 'setNetwork',
+        'address'         => 'setAddress',
+        'app_id'          => 'setAppId',
+        'invoice_id'      => 'setInvoiceId',
+        'order_id'        => 'setOrderId',
+        'price_amount'    => 'setPriceAmount',
+        'price_currency'  => 'setPriceCurrency',
+        'pay_amount'      => 'setPayAmount',
+        'pay_currency'    => 'setPayCurrency',
+        'exchange_rate'   => 'setExchangeRate',
+        'paid_amount'     => 'setPaidAmount',
+        'create_time'     => 'setCreateTime',
         'expiration_time' => 'setExpirationTime',
-        'confirm_speed' => 'setConfirmSpeed',
-        'status' => 'setStatus',
-        'error_status' => 'setErrorStatus',
-        'invoice_url' => 'setInvoiceUrl'];
+        'confirm_speed'   => 'setConfirmSpeed',
+        'status'          => 'setStatus',
+        'error_status'    => 'setErrorStatus',
+        'invoice_url'     => 'setInvoiceUrl',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'transactions' => 'getTransactions',
-        'network' => 'getNetwork',
-        'address' => 'getAddress',
-        'app_id' => 'getAppId',
-        'invoice_id' => 'getInvoiceId',
-        'order_id' => 'getOrderId',
-        'price_amount' => 'getPriceAmount',
-        'price_currency' => 'getPriceCurrency',
-        'pay_amount' => 'getPayAmount',
-        'pay_currency' => 'getPayCurrency',
-        'exchange_rate' => 'getExchangeRate',
-        'paid_amount' => 'getPaidAmount',
-        'create_time' => 'getCreateTime',
+        'transactions'    => 'getTransactions',
+        'network'         => 'getNetwork',
+        'address'         => 'getAddress',
+        'app_id'          => 'getAppId',
+        'invoice_id'      => 'getInvoiceId',
+        'order_id'        => 'getOrderId',
+        'price_amount'    => 'getPriceAmount',
+        'price_currency'  => 'getPriceCurrency',
+        'pay_amount'      => 'getPayAmount',
+        'pay_currency'    => 'getPayCurrency',
+        'exchange_rate'   => 'getExchangeRate',
+        'paid_amount'     => 'getPaidAmount',
+        'create_time'     => 'getCreateTime',
         'expiration_time' => 'getExpirationTime',
-        'confirm_speed' => 'getConfirmSpeed',
-        'status' => 'getStatus',
-        'error_status' => 'getErrorStatus',
-        'invoice_url' => 'getInvoiceUrl'];
+        'confirm_speed'   => 'getConfirmSpeed',
+        'status'          => 'getStatus',
+        'error_status'    => 'getErrorStatus',
+        'invoice_url'     => 'getInvoiceUrl',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap(): array
@@ -181,7 +176,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters(): array
@@ -191,7 +185,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters(): array
@@ -201,7 +194,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName(): string
@@ -211,54 +203,51 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var array
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
+     * @param  mixed[]  $data  Associated array of property values
+     *                         initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['transactions'] = $data['transactions'] ?? null;
-        $this->container['network'] = $data['network'] ?? null;
-        $this->container['address'] = $data['address'] ?? null;
-        $this->container['app_id'] = $data['app_id'] ?? null;
-        $this->container['invoice_id'] = $data['invoice_id'] ?? null;
-        $this->container['order_id'] = $data['order_id'] ?? null;
-        $this->container['price_amount'] = $data['price_amount'] ?? null;
-        $this->container['price_currency'] = $data['price_currency'] ?? null;
-        $this->container['pay_amount'] = $data['pay_amount'] ?? null;
-        $this->container['pay_currency'] = $data['pay_currency'] ?? null;
-        $this->container['exchange_rate'] = $data['exchange_rate'] ?? null;
-        $this->container['paid_amount'] = $data['paid_amount'] ?? null;
-        $this->container['create_time'] = $data['create_time'] ?? null;
+        $this->container['transactions']    = $data['transactions'] ?? null;
+        $this->container['network']         = $data['network'] ?? null;
+        $this->container['address']         = $data['address'] ?? null;
+        $this->container['app_id']          = $data['app_id'] ?? null;
+        $this->container['invoice_id']      = $data['invoice_id'] ?? null;
+        $this->container['order_id']        = $data['order_id'] ?? null;
+        $this->container['price_amount']    = $data['price_amount'] ?? null;
+        $this->container['price_currency']  = $data['price_currency'] ?? null;
+        $this->container['pay_amount']      = $data['pay_amount'] ?? null;
+        $this->container['pay_currency']    = $data['pay_currency'] ?? null;
+        $this->container['exchange_rate']   = $data['exchange_rate'] ?? null;
+        $this->container['paid_amount']     = $data['paid_amount'] ?? null;
+        $this->container['create_time']     = $data['create_time'] ?? null;
         $this->container['expiration_time'] = $data['expiration_time'] ?? null;
-        $this->container['confirm_speed'] = $data['confirm_speed'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['error_status'] = $data['error_status'] ?? null;
-        $this->container['invoice_url'] = $data['invoice_url'] ?? null;
+        $this->container['confirm_speed']   = $data['confirm_speed'] ?? null;
+        $this->container['status']          = $data['status'] ?? null;
+        $this->container['error_status']    = $data['error_status'] ?? null;
+        $this->container['invoice_url']     = $data['invoice_url'] ?? null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
         return $invalidProperties;
     }
 
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid(): bool
@@ -269,7 +258,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets transactions
-     *
      * @return InvoiceTransactionModel[]
      */
     public function getTransactions(): array
@@ -279,9 +267,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets transactions
-     *
-     * @param InvoiceTransactionModel[] $transactions transactions
-     *
+     * @param  InvoiceTransactionModel[]  $transactions  transactions
      * @return $this
      */
     public function setTransactions(array $transactions): InvoiceDetailModel
@@ -293,7 +279,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets network
-     *
      * @return string
      */
     public function getNetwork(): ?string
@@ -303,9 +288,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets network
-     *
-     * @param string $network network
-     *
+     * @param  string  $network  network
      * @return $this
      */
     public function setNetwork(string $network): InvoiceDetailModel
@@ -317,7 +300,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets address
-     *
      * @return string
      */
     public function getAddress(): ?string
@@ -327,9 +309,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets address
-     *
-     * @param string $address address
-     *
+     * @param  string  $address  address
      * @return $this
      */
     public function setAddress(string $address): InvoiceDetailModel
@@ -341,7 +321,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets app_id
-     *
      * @return string
      */
     public function getAppId(): string
@@ -351,9 +330,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets app_id
-     *
-     * @param string $app_id app_id
-     *
+     * @param  string  $app_id  app_id
      * @return $this
      */
     public function setAppId(string $app_id): InvoiceDetailModel
@@ -365,7 +342,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets invoice_id
-     *
      * @return string
      */
     public function getInvoiceId(): string
@@ -375,9 +351,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets invoice_id
-     *
-     * @param string $invoice_id invoice_id
-     *
+     * @param  string  $invoice_id  invoice_id
      * @return $this
      */
     public function setInvoiceId(string $invoice_id): InvoiceDetailModel
@@ -389,7 +363,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets order_id
-     *
      * @return string
      */
     public function getOrderId(): string
@@ -399,9 +372,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets order_id
-     *
-     * @param string $order_id order_id
-     *
+     * @param  string  $order_id  order_id
      * @return $this
      */
     public function setOrderId(string $order_id): InvoiceDetailModel
@@ -413,7 +384,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets price_amount
-     *
      * @return double
      */
     public function getPriceAmount(): float
@@ -423,9 +393,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets price_amount
-     *
-     * @param double $price_amount price_amount
-     *
+     * @param  double  $price_amount  price_amount
      * @return $this
      */
     public function setPriceAmount(float $price_amount): InvoiceDetailModel
@@ -437,7 +405,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets price_currency
-     *
      * @return string
      */
     public function getPriceCurrency(): string
@@ -447,9 +414,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets price_currency
-     *
-     * @param string $price_currency price_currency
-     *
+     * @param  string  $price_currency  price_currency
      * @return $this
      */
     public function setPriceCurrency(string $price_currency): InvoiceDetailModel
@@ -461,7 +426,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets pay_amount
-     *
      * @return double
      */
     public function getPayAmount(): float
@@ -471,9 +435,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets pay_amount
-     *
-     * @param double $pay_amount pay_amount
-     *
+     * @param  double  $pay_amount  pay_amount
      * @return $this
      */
     public function setPayAmount(float $pay_amount): InvoiceDetailModel
@@ -485,7 +447,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets pay_currency
-     *
      * @return string
      */
     public function getPayCurrency(): ?string
@@ -495,9 +456,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets pay_currency
-     *
-     * @param string $pay_currency pay_currency
-     *
+     * @param  string  $pay_currency  pay_currency
      * @return $this
      */
     public function setPayCurrency(string $pay_currency): InvoiceDetailModel
@@ -509,7 +468,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets exchange_rate
-     *
      * @return double
      */
     public function getExchangeRate(): float
@@ -519,9 +477,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets exchange_rate
-     *
-     * @param double $exchange_rate exchange_rate
-     *
+     * @param  double  $exchange_rate  exchange_rate
      * @return $this
      */
     public function setExchangeRate(float $exchange_rate): InvoiceDetailModel
@@ -533,7 +489,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets paid_amount
-     *
      * @return double
      */
     public function getPaidAmount(): float
@@ -543,9 +498,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets paid_amount
-     *
-     * @param double $paid_amount paid_amount
-     *
+     * @param  double  $paid_amount  paid_amount
      * @return $this
      */
     public function setPaidAmount(float $paid_amount): InvoiceDetailModel
@@ -557,7 +510,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets create_time
-     *
      * @return \DateTime
      */
     public function getCreateTime(): \DateTime
@@ -567,9 +519,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets create_time
-     *
-     * @param \DateTime $create_time create_time
-     *
+     * @param  \DateTime  $create_time  create_time
      * @return $this
      */
     public function setCreateTime(\DateTime $create_time): InvoiceDetailModel
@@ -581,7 +531,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets expiration_time
-     *
      * @return \DateTime
      */
     public function getExpirationTime(): \DateTime
@@ -591,9 +540,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets expiration_time
-     *
-     * @param \DateTime $expiration_time expiration_time
-     *
+     * @param  \DateTime  $expiration_time  expiration_time
      * @return $this
      */
     public function setExpirationTime(\DateTime $expiration_time): InvoiceDetailModel
@@ -605,7 +552,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets confirm_speed
-     *
      * @return string
      */
     public function getConfirmSpeed(): string
@@ -615,9 +561,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets confirm_speed
-     *
-     * @param string $confirm_speed confirm_speed
-     *
+     * @param  string  $confirm_speed  confirm_speed
      * @return $this
      */
     public function setConfirmSpeed(string $confirm_speed): InvoiceDetailModel
@@ -629,7 +573,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets status
-     *
      * @return string
      */
     public function getStatus(): string
@@ -639,9 +582,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets status
-     *
-     * @param string $status status
-     *
+     * @param  string  $status  status
      * @return $this
      */
     public function setStatus(string $status): InvoiceDetailModel
@@ -653,7 +594,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets error_status
-     *
      * @return string
      */
     public function getErrorStatus(): string
@@ -663,9 +603,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets error_status
-     *
-     * @param string $error_status error_status
-     *
+     * @param  string  $error_status  error_status
      * @return $this
      */
     public function setErrorStatus(string $error_status): InvoiceDetailModel
@@ -677,7 +615,6 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets invoice_url
-     *
      * @return string
      */
     public function getInvoiceUrl(): string
@@ -687,9 +624,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets invoice_url
-     *
-     * @param string $invoice_url invoice_url
-     *
+     * @param  string  $invoice_url  invoice_url
      * @return $this
      */
     public function setInvoiceUrl(string $invoice_url): InvoiceDetailModel
@@ -701,9 +636,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -714,9 +647,7 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -727,12 +658,11 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -744,11 +674,10 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -765,18 +694,18 @@ class InvoiceDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

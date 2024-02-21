@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * PayoutDetailModel Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,44 +16,40 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'PayoutDetailModel';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'payout_id' => 'string',
-        'network' => 'string',
-        'asset_type' => 'string',
-        'status' => 'string',
+        'payout_id'   => 'string',
+        'network'     => 'string',
+        'asset_type'  => 'string',
+        'status'      => 'string',
         'create_time' => '\DateTime',
         'update_time' => '\DateTime',
-        'items' => '\UniPayment\Client\Model\PayoutItem[]'
+        'items'       => '\UniPayment\Client\Model\PayoutItem[]',
     ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'payout_id' => null,
-        'network' => null,
-        'asset_type' => null,
-        'status' => null,
+        'payout_id'   => null,
+        'network'     => null,
+        'asset_type'  => null,
+        'status'      => null,
         'create_time' => 'date-time',
         'update_time' => 'date-time',
-        'items' => null
+        'items'       => null,
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes()
@@ -64,7 +59,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats()
@@ -75,53 +69,49 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'payout_id' => 'payout_id',
-        'network' => 'network',
-        'asset_type' => 'asset_type',
-        'status' => 'status',
+        'payout_id'   => 'payout_id',
+        'network'     => 'network',
+        'asset_type'  => 'asset_type',
+        'status'      => 'status',
         'create_time' => 'create_time',
         'update_time' => 'update_time',
-        'items' => 'items'
+        'items'       => 'items',
     ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'payout_id' => 'setPayoutId',
-        'network' => 'setNetwork',
-        'asset_type' => 'setAssetType',
-        'status' => 'setStatus',
+        'payout_id'   => 'setPayoutId',
+        'network'     => 'setNetwork',
+        'asset_type'  => 'setAssetType',
+        'status'      => 'setStatus',
         'create_time' => 'setCreateTime',
         'update_time' => 'setUpdateTime',
-        'items' => 'setItems'
+        'items'       => 'setItems',
     ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'payout_id' => 'getPayoutId',
-        'network' => 'getNetwork',
-        'asset_type' => 'getAssetType',
-        'status' => 'getStatus',
+        'payout_id'   => 'getPayoutId',
+        'network'     => 'getNetwork',
+        'asset_type'  => 'getAssetType',
+        'status'      => 'getStatus',
         'create_time' => 'getCreateTime',
         'update_time' => 'getUpdateTime',
-        'items' => 'getItems'
+        'items'       => 'getItems',
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap()
@@ -131,7 +121,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters()
@@ -141,7 +130,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters()
@@ -151,7 +139,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName()
@@ -159,13 +146,12 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
         return self::$modelName;
     }
 
-    const STATUS_PENDING = 'Pending';
+    const STATUS_PENDING    = 'Pending';
     const STATUS_PROCESSING = 'Processing';
-    const STATUS_COMPLETE = 'Complete';
+    const STATUS_COMPLETE   = 'Complete';
 
     /**
      * Gets allowable values of the enum
-     *
      * @return string[]
      */
     public function getStatusAllowableValues()
@@ -179,31 +165,28 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
+     * @param  mixed[]  $data  Associated array of property values
+     *                         initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['payout_id'] = isset($data['payout_id']) ? $data['payout_id'] : null;
-        $this->container['network'] = isset($data['network']) ? $data['network'] : null;
-        $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['payout_id']   = isset($data['payout_id']) ? $data['payout_id'] : null;
+        $this->container['network']     = isset($data['network']) ? $data['network'] : null;
+        $this->container['asset_type']  = isset($data['asset_type']) ? $data['asset_type'] : null;
+        $this->container['status']      = isset($data['status']) ? $data['status'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
         $this->container['update_time'] = isset($data['update_time']) ? $data['update_time'] : null;
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
+        $this->container['items']       = isset($data['items']) ? $data['items'] : null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
@@ -212,10 +195,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+            $invalidProperties[] = sprintf("invalid value for 'status', must be one of '%s'", implode("', '", $allowedValues));
         }
 
         return $invalidProperties;
@@ -224,7 +204,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid()
@@ -235,7 +214,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets payout_id
-     *
      * @return string
      */
     public function getPayoutId()
@@ -245,9 +223,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets payout_id
-     *
-     * @param string $payout_id payout_id
-     *
+     * @param  string  $payout_id  payout_id
      * @return $this
      */
     public function setPayoutId($payout_id)
@@ -259,7 +235,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets network
-     *
      * @return string
      */
     public function getNetwork()
@@ -269,9 +244,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets network
-     *
-     * @param string $network network
-     *
+     * @param  string  $network  network
      * @return $this
      */
     public function setNetwork($network)
@@ -283,7 +256,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets asset_type
-     *
      * @return string
      */
     public function getAssetType()
@@ -293,9 +265,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets asset_type
-     *
-     * @param string $asset_type asset_type
-     *
+     * @param  string  $asset_type  asset_type
      * @return $this
      */
     public function setAssetType($asset_type)
@@ -307,7 +277,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets status
-     *
      * @return string
      */
     public function getStatus()
@@ -317,21 +286,14 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets status
-     *
-     * @param string $status status
-     *
+     * @param  string  $status  status
      * @return $this
      */
     public function setStatus($status)
     {
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'status', must be one of '%s'", implode("', '", $allowedValues)));
         }
         $this->container['status'] = $status;
 
@@ -340,7 +302,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets create_time
-     *
      * @return \DateTime
      */
     public function getCreateTime()
@@ -350,9 +311,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets create_time
-     *
-     * @param \DateTime $create_time create_time
-     *
+     * @param  \DateTime  $create_time  create_time
      * @return $this
      */
     public function setCreateTime($create_time)
@@ -364,7 +323,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets update_time
-     *
      * @return \DateTime
      */
     public function getUpdateTime()
@@ -374,9 +332,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets update_time
-     *
-     * @param \DateTime $update_time update_time
-     *
+     * @param  \DateTime  $update_time  update_time
      * @return $this
      */
     public function setUpdateTime($update_time)
@@ -388,7 +344,6 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets items
-     *
      * @return \UniPayment\Client\Model\PayoutItem[]
      */
     public function getItems()
@@ -398,9 +353,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets items
-     *
-     * @param \UniPayment\Client\Model\PayoutItem[] $items items
-     *
+     * @param  \UniPayment\Client\Model\PayoutItem[]  $items  items
      * @return $this
      */
     public function setItems($items)
@@ -412,9 +365,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -425,9 +376,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -438,10 +387,8 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -456,9 +403,7 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -469,18 +414,18 @@ class PayoutDetailModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

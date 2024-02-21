@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * CreateInvoiceRequest Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,54 +16,52 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'CreateInvoiceRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'app_id' => 'string',
-        'title' => 'string',
-        'description' => 'string',
-        'lang' => 'string',
-        'price_amount' => 'double',
+        'app_id'         => 'string',
+        'title'          => 'string',
+        'description'    => 'string',
+        'lang'           => 'string',
+        'price_amount'   => 'double',
         'price_currency' => 'string',
-        'network' => 'string',
-        'pay_currency' => 'string',
-        'notify_url' => 'string',
-        'redirect_url' => 'string',
-        'order_id' => 'string',
-        'ext_args' => 'string',
-        'confirm_speed' => 'string'];
+        'network'        => 'string',
+        'pay_currency'   => 'string',
+        'notify_url'     => 'string',
+        'redirect_url'   => 'string',
+        'order_id'       => 'string',
+        'ext_args'       => 'string',
+        'confirm_speed'  => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'app_id' => null,
-        'title' => null,
-        'description' => null,
-        'lang' => null,
-        'price_amount' => 'double',
+        'app_id'         => null,
+        'title'          => null,
+        'description'    => null,
+        'lang'           => null,
+        'price_amount'   => 'double',
         'price_currency' => null,
-        'network' => null,
-        'pay_currency' => null,
-        'notify_url' => null,
-        'redirect_url' => null,
-        'order_id' => null,
-        'ext_args' => null,
-        'confirm_speed' => null];
+        'network'        => null,
+        'pay_currency'   => null,
+        'notify_url'     => null,
+        'redirect_url'   => null,
+        'order_id'       => null,
+        'ext_args'       => null,
+        'confirm_speed'  => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes(): array
@@ -74,7 +71,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats(): array
@@ -85,68 +81,67 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'app_id' => 'app_id',
-        'title' => 'title',
-        'description' => 'description',
-        'lang' => 'lang',
-        'price_amount' => 'price_amount',
+        'app_id'         => 'app_id',
+        'title'          => 'title',
+        'description'    => 'description',
+        'lang'           => 'lang',
+        'price_amount'   => 'price_amount',
         'price_currency' => 'price_currency',
-        'network' => 'network',
-        'pay_currency' => 'pay_currency',
-        'notify_url' => 'notify_url',
-        'redirect_url' => 'redirect_url',
-        'order_id' => 'order_id',
-        'ext_args' => 'ext_args',
-        'confirm_speed' => 'confirm_speed'];
+        'network'        => 'network',
+        'pay_currency'   => 'pay_currency',
+        'notify_url'     => 'notify_url',
+        'redirect_url'   => 'redirect_url',
+        'order_id'       => 'order_id',
+        'ext_args'       => 'ext_args',
+        'confirm_speed'  => 'confirm_speed',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'app_id' => 'setAppId',
-        'title' => 'setTitle',
-        'description' => 'setDescription',
-        'lang' => 'setLang',
-        'price_amount' => 'setPriceAmount',
+        'app_id'         => 'setAppId',
+        'title'          => 'setTitle',
+        'description'    => 'setDescription',
+        'lang'           => 'setLang',
+        'price_amount'   => 'setPriceAmount',
         'price_currency' => 'setPriceCurrency',
-        'network' => 'setNetwork',
-        'pay_currency' => 'setPayCurrency',
-        'notify_url' => 'setNotifyUrl',
-        'redirect_url' => 'setRedirectUrl',
-        'order_id' => 'setOrderId',
-        'ext_args' => 'setExtArgs',
-        'confirm_speed' => 'setConfirmSpeed'];
+        'network'        => 'setNetwork',
+        'pay_currency'   => 'setPayCurrency',
+        'notify_url'     => 'setNotifyUrl',
+        'redirect_url'   => 'setRedirectUrl',
+        'order_id'       => 'setOrderId',
+        'ext_args'       => 'setExtArgs',
+        'confirm_speed'  => 'setConfirmSpeed',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'app_id' => 'getAppId',
-        'title' => 'getTitle',
-        'description' => 'getDescription',
-        'lang' => 'getLang',
-        'price_amount' => 'getPriceAmount',
+        'app_id'         => 'getAppId',
+        'title'          => 'getTitle',
+        'description'    => 'getDescription',
+        'lang'           => 'getLang',
+        'price_amount'   => 'getPriceAmount',
         'price_currency' => 'getPriceCurrency',
-        'network' => 'getNetwork',
-        'pay_currency' => 'getPayCurrency',
-        'notify_url' => 'getNotifyUrl',
-        'redirect_url' => 'getRedirectUrl',
-        'order_id' => 'getOrderId',
-        'ext_args' => 'getExtArgs',
-        'confirm_speed' => 'getConfirmSpeed'];
+        'network'        => 'getNetwork',
+        'pay_currency'   => 'getPayCurrency',
+        'notify_url'     => 'getNotifyUrl',
+        'redirect_url'   => 'getRedirectUrl',
+        'order_id'       => 'getOrderId',
+        'ext_args'       => 'getExtArgs',
+        'confirm_speed'  => 'getConfirmSpeed',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap(): array
@@ -156,7 +151,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters(): array
@@ -166,7 +160,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters(): array
@@ -176,7 +169,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName(): string
@@ -184,13 +176,12 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         return self::$modelName;
     }
 
-    const CONFIRM_SPEED_LOW = 'low';
+    const CONFIRM_SPEED_LOW    = 'low';
     const CONFIRM_SPEED_MEDIUM = 'medium';
-    const CONFIRM_SPEED_HIGH = 'high';
+    const CONFIRM_SPEED_HIGH   = 'high';
 
     /**
      * Gets allowable values of the enum
-     *
      * @return string[]
      */
     public function getConfirmSpeedAllowableValues(): array
@@ -198,42 +189,40 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         return [
             self::CONFIRM_SPEED_LOW,
             self::CONFIRM_SPEED_MEDIUM,
-            self::CONFIRM_SPEED_HIGH,];
+            self::CONFIRM_SPEED_HIGH,
+        ];
     }
 
     /**
      * Associative array for storing property values
-     *
      * @var array
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param array|null $data Associated array of property values
-     *                      initializing the model
+     * @param  array|null  $data  Associated array of property values
+     *                            initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['app_id'] = $data['app_id'] ?? null;
-        $this->container['title'] = $data['title'] ?? null;
-        $this->container['description'] = $data['description'] ?? null;
-        $this->container['lang'] = $data['lang'] ?? null;
-        $this->container['price_amount'] = $data['price_amount'] ?? null;
+        $this->container['app_id']         = $data['app_id'] ?? null;
+        $this->container['title']          = $data['title'] ?? null;
+        $this->container['description']    = $data['description'] ?? null;
+        $this->container['lang']           = $data['lang'] ?? null;
+        $this->container['price_amount']   = $data['price_amount'] ?? null;
         $this->container['price_currency'] = $data['price_currency'] ?? null;
-        $this->container['network'] = $data['network'] ?? null;
-        $this->container['pay_currency'] = $data['pay_currency'] ?? null;
-        $this->container['notify_url'] = $data['notify_url'] ?? null;
-        $this->container['redirect_url'] = $data['redirect_url'] ?? null;
-        $this->container['order_id'] = $data['order_id'] ?? null;
-        $this->container['ext_args'] = $data['ext_args'] ?? null;
-        $this->container['confirm_speed'] = $data['confirm_speed'] ?? null;
+        $this->container['network']        = $data['network'] ?? null;
+        $this->container['pay_currency']   = $data['pay_currency'] ?? null;
+        $this->container['notify_url']     = $data['notify_url'] ?? null;
+        $this->container['redirect_url']   = $data['redirect_url'] ?? null;
+        $this->container['order_id']       = $data['order_id'] ?? null;
+        $this->container['ext_args']       = $data['ext_args'] ?? null;
+        $this->container['confirm_speed']  = $data['confirm_speed'] ?? null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties(): array
@@ -242,10 +231,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
         $allowedValues = $this->getConfirmSpeedAllowableValues();
         if (!is_null($this->container['confirm_speed']) && !in_array($this->container['confirm_speed'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'confirm_speed', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+            $invalidProperties[] = sprintf("invalid value for 'confirm_speed', must be one of '%s'", implode("', '", $allowedValues));
         }
 
         return $invalidProperties;
@@ -254,7 +240,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid(): bool
@@ -264,7 +249,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets app_id
-     *
      * @return string
      */
     public function getAppId()
@@ -274,9 +258,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets app_id
-     *
-     * @param string $title title
-     *
+     * @param  string  $title  title
      * @return $this
      */
     public function setAppId(string $title): CreateInvoiceRequest
@@ -288,7 +270,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets title
-     *
      * @return string
      */
     public function getTitle()
@@ -298,9 +279,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets title
-     *
-     * @param string $title title
-     *
+     * @param  string  $title  title
      * @return $this
      */
     public function setTitle(string $title): CreateInvoiceRequest
@@ -312,7 +291,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets description
-     *
      * @return string
      */
     public function getDescription()
@@ -322,9 +300,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets description
-     *
-     * @param string $description description
-     *
+     * @param  string  $description  description
      * @return $this
      */
     public function setDescription(string $description): CreateInvoiceRequest
@@ -336,7 +312,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets lang
-     *
      * @return string
      */
     public function getLang()
@@ -346,9 +321,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets lang
-     *
-     * @param string $lang lang
-     *
+     * @param  string  $lang  lang
      * @return $this
      */
     public function setLang(string $lang): CreateInvoiceRequest
@@ -360,7 +333,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets price_amount
-     *
      * @return double
      */
     public function getPriceAmount()
@@ -370,9 +342,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets price_amount
-     *
-     * @param double $price_amount price_amount
-     *
+     * @param  double  $price_amount  price_amount
      * @return $this
      */
     public function setPriceAmount(float $price_amount): CreateInvoiceRequest
@@ -384,7 +354,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets price_currency
-     *
      * @return string
      */
     public function getPriceCurrency()
@@ -394,9 +363,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets price_currency
-     *
-     * @param string $price_currency price_currency
-     *
+     * @param  string  $price_currency  price_currency
      * @return $this
      */
     public function setPriceCurrency(string $price_currency): CreateInvoiceRequest
@@ -406,9 +373,8 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
         return $this;
     }
 
-     /**
+    /**
      * Gets network
-     *
      * @return string
      */
     public function getNetwork()
@@ -418,9 +384,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets network
-     *
-     * @param string $network network
-     *
+     * @param  string  $network  network
      * @return $this
      */
     public function setNetwork(string $network): CreateInvoiceRequest
@@ -432,7 +396,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets pay_currency
-     *
      * @return string
      */
     public function getPayCurrency()
@@ -442,9 +405,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets pay_currency
-     *
-     * @param string $pay_currency pay_currency
-     *
+     * @param  string  $pay_currency  pay_currency
      * @return $this
      */
     public function setPayCurrency(string $pay_currency): CreateInvoiceRequest
@@ -456,7 +417,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets notify_url
-     *
      * @return string
      */
     public function getNotifyUrl()
@@ -466,9 +426,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets notify_url
-     *
-     * @param string $notify_url notify_url
-     *
+     * @param  string  $notify_url  notify_url
      * @return $this
      */
     public function setNotifyUrl(string $notify_url): CreateInvoiceRequest
@@ -480,7 +438,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets redirect_url
-     *
      * @return string
      */
     public function getRedirectUrl()
@@ -490,9 +447,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets redirect_url
-     *
-     * @param string $redirect_url redirect_url
-     *
+     * @param  string  $redirect_url  redirect_url
      * @return $this
      */
     public function setRedirectUrl(string $redirect_url): CreateInvoiceRequest
@@ -504,7 +459,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets order_id
-     *
      * @return string
      */
     public function getOrderId()
@@ -514,9 +468,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets order_id
-     *
-     * @param string $order_id order_id
-     *
+     * @param  string  $order_id  order_id
      * @return $this
      */
     public function setOrderId(string $order_id): CreateInvoiceRequest
@@ -528,7 +480,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets ext_args
-     *
      * @return string
      */
     public function getExtArgs()
@@ -538,9 +489,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets ext_args
-     *
-     * @param string $ext_args ext_args
-     *
+     * @param  string  $ext_args  ext_args
      * @return $this
      */
     public function setExtArgs(string $ext_args): CreateInvoiceRequest
@@ -552,7 +501,6 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets confirm_speed
-     *
      * @return string
      */
     public function getConfirmSpeed()
@@ -562,21 +510,14 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets confirm_speed
-     *
-     * @param string $confirm_speed confirm_speed
-     *
+     * @param  string  $confirm_speed  confirm_speed
      * @return $this
      */
     public function setConfirmSpeed(string $confirm_speed): CreateInvoiceRequest
     {
         $allowedValues = $this->getConfirmSpeedAllowableValues();
         if (!in_array($confirm_speed, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'confirm_speed', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'confirm_speed', must be one of '%s'", implode("', '", $allowedValues)));
         }
         $this->container['confirm_speed'] = $confirm_speed;
 
@@ -585,9 +526,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -598,9 +537,7 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -611,12 +548,11 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -628,11 +564,10 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -649,18 +584,18 @@ class CreateInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

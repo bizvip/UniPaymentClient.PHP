@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * InvoiceTransactionModel Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,44 +16,42 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'InvoiceTransactionModel';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'hash' => 'string',
-        'network' => 'string',
-        'symbol' => 'string',
-        'from' => 'string',
-        'to' => 'string',
-        'amount' => 'double',
+        'hash'               => 'string',
+        'network'            => 'string',
+        'symbol'             => 'string',
+        'from'               => 'string',
+        'to'                 => 'string',
+        'amount'             => 'double',
         'confirmation_count' => 'int',
-        'is_confirmed' => 'bool'];
+        'is_confirmed'       => 'bool',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'hash' => null,
-        'network' => null,
-        'symbol' => null,
-        'from' => null,
-        'to' => null,
-        'amount' => 'double',
+        'hash'               => null,
+        'network'            => null,
+        'symbol'             => null,
+        'from'               => null,
+        'to'                 => null,
+        'amount'             => 'double',
         'confirmation_count' => 'int32',
-        'is_confirmed' => null];
+        'is_confirmed'       => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes(): array
@@ -64,7 +61,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats(): array
@@ -75,53 +71,52 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'hash' => 'hash',
-        'network' => 'network',
-        'symbol' => 'symbol',
-        'from' => 'from',
-        'to' => 'to',
-        'amount' => 'amount',
+        'hash'               => 'hash',
+        'network'            => 'network',
+        'symbol'             => 'symbol',
+        'from'               => 'from',
+        'to'                 => 'to',
+        'amount'             => 'amount',
         'confirmation_count' => 'confirmation_count',
-        'is_confirmed' => 'is_confirmed'];
+        'is_confirmed'       => 'is_confirmed',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'hash' => 'setHash',
-        'network' => 'setNetwork',
-        'symbol' => 'setSymbol',
-        'from' => 'setFrom',
-        'to' => 'setTo',
-        'amount' => 'setAmount',
+        'hash'               => 'setHash',
+        'network'            => 'setNetwork',
+        'symbol'             => 'setSymbol',
+        'from'               => 'setFrom',
+        'to'                 => 'setTo',
+        'amount'             => 'setAmount',
         'confirmation_count' => 'setConfirmationCount',
-        'is_confirmed' => 'setIsConfirmed'];
+        'is_confirmed'       => 'setIsConfirmed',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'hash' => 'getHash',
-        'network' => 'getNetwork',
-        'symbol' => 'getSymbol',
-        'from' => 'getFrom',
-        'to' => 'getTo',
-        'amount' => 'getAmount',
+        'hash'               => 'getHash',
+        'network'            => 'getNetwork',
+        'symbol'             => 'getSymbol',
+        'from'               => 'getFrom',
+        'to'                 => 'getTo',
+        'amount'             => 'getAmount',
         'confirmation_count' => 'getConfirmationCount',
-        'is_confirmed' => 'getIsConfirmed'];
+        'is_confirmed'       => 'getIsConfirmed',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap(): array
@@ -131,7 +126,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters(): array
@@ -141,7 +135,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters(): array
@@ -151,7 +144,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName(): string
@@ -161,44 +153,41 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var array
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param array|null $data Associated array of property values
-     *                      initializing the model
+     * @param  array|null  $data  Associated array of property values
+     *                            initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['hash'] = $data['hash'] ?? null;
-        $this->container['network'] = $data['network'] ?? null;
-        $this->container['symbol'] = $data['symbol'] ?? null;
-        $this->container['from'] = $data['from'] ?? null;
-        $this->container['to'] = $data['to'] ?? null;
-        $this->container['amount'] = $data['amount'] ?? null;
+        $this->container['hash']               = $data['hash'] ?? null;
+        $this->container['network']            = $data['network'] ?? null;
+        $this->container['symbol']             = $data['symbol'] ?? null;
+        $this->container['from']               = $data['from'] ?? null;
+        $this->container['to']                 = $data['to'] ?? null;
+        $this->container['amount']             = $data['amount'] ?? null;
         $this->container['confirmation_count'] = $data['confirmation_count'] ?? null;
-        $this->container['is_confirmed'] = $data['is_confirmed'] ?? null;
+        $this->container['is_confirmed']       = $data['is_confirmed'] ?? null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
         return $invalidProperties;
     }
 
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid(): bool
@@ -209,7 +198,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets hash
-     *
      * @return string
      */
     public function getHash(): string
@@ -219,9 +207,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets hash
-     *
-     * @param string $hash hash
-     *
+     * @param  string  $hash  hash
      * @return $this
      */
     public function setHash(string $hash): InvoiceTransactionModel
@@ -233,7 +219,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets network
-     *
      * @return string
      */
     public function getNetwork(): string
@@ -243,9 +228,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets network
-     *
-     * @param string $network network
-     *
+     * @param  string  $network  network
      * @return $this
      */
     public function setNetwork(string $network): InvoiceTransactionModel
@@ -257,7 +240,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets symbol
-     *
      * @return string
      */
     public function getSymbol(): string
@@ -267,9 +249,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets symbol
-     *
-     * @param string $symbol symbol
-     *
+     * @param  string  $symbol  symbol
      * @return $this
      */
     public function setSymbol(string $symbol): InvoiceTransactionModel
@@ -281,7 +261,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets from
-     *
      * @return string
      */
     public function getFrom(): string
@@ -291,9 +270,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets from
-     *
-     * @param string $from from
-     *
+     * @param  string  $from  from
      * @return $this
      */
     public function setFrom(string $from): InvoiceTransactionModel
@@ -305,7 +282,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets to
-     *
      * @return string
      */
     public function getTo(): string
@@ -315,9 +291,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets to
-     *
-     * @param string $to to
-     *
+     * @param  string  $to  to
      * @return $this
      */
     public function setTo(string $to): InvoiceTransactionModel
@@ -329,7 +303,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets amount
-     *
      * @return double
      */
     public function getAmount(): float
@@ -339,9 +312,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets amount
-     *
-     * @param double $amount amount
-     *
+     * @param  double  $amount  amount
      * @return $this
      */
     public function setAmount(float $amount): InvoiceTransactionModel
@@ -353,7 +324,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets confirmation_count
-     *
      * @return int
      */
     public function getConfirmationCount(): int
@@ -363,9 +333,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets confirmation_count
-     *
-     * @param int $confirmation_count confirmation_count
-     *
+     * @param  int  $confirmation_count  confirmation_count
      * @return $this
      */
     public function setConfirmationCount(int $confirmation_count): InvoiceTransactionModel
@@ -377,7 +345,6 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets is_confirmed
-     *
      * @return bool
      */
     public function getIsConfirmed(): bool
@@ -387,9 +354,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets is_confirmed
-     *
-     * @param bool $is_confirmed is_confirmed
-     *
+     * @param  bool  $is_confirmed  is_confirmed
      * @return $this
      */
     public function setIsConfirmed(bool $is_confirmed): InvoiceTransactionModel
@@ -401,9 +366,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -414,9 +377,7 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -427,12 +388,11 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -444,11 +404,10 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -456,18 +415,18 @@ class InvoiceTransactionModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

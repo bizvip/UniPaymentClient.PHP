@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * CreateWithdrawalRequest Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,48 +16,44 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'CreateWithdrawalRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'network' => 'string',
-        'address' => 'string',
-        'asset_type' => 'string',
-        'amount' => 'double',
-        'dest_tag' => 'string',
-        'notify_url' => 'string',
-        'note' => 'string',
+        'network'      => 'string',
+        'address'      => 'string',
+        'asset_type'   => 'string',
+        'amount'       => 'double',
+        'dest_tag'     => 'string',
+        'notify_url'   => 'string',
+        'note'         => 'string',
         'auto_confirm' => 'bool',
-        'include_fee' => 'bool'
+        'include_fee'  => 'bool',
     ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'network' => null,
-        'address' => null,
-        'asset_type' => null,
-        'amount' => 'double',
-        'dest_tag' => null,
-        'notify_url' => null,
-        'note' => null,
+        'network'      => null,
+        'address'      => null,
+        'asset_type'   => null,
+        'amount'       => 'double',
+        'dest_tag'     => null,
+        'notify_url'   => null,
+        'note'         => null,
         'auto_confirm' => null,
-        'include_fee' => null
+        'include_fee'  => null,
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes()
@@ -68,7 +63,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats()
@@ -79,59 +73,55 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'network' => 'network',
-        'address' => 'address',
-        'asset_type' => 'asset_type',
-        'amount' => 'amount',
-        'dest_tag' => 'dest_tag',
-        'notify_url' => 'notify_url',
-        'note' => 'note',
+        'network'      => 'network',
+        'address'      => 'address',
+        'asset_type'   => 'asset_type',
+        'amount'       => 'amount',
+        'dest_tag'     => 'dest_tag',
+        'notify_url'   => 'notify_url',
+        'note'         => 'note',
         'auto_confirm' => 'auto_confirm',
-        'include_fee' => 'include_fee'
+        'include_fee'  => 'include_fee',
     ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'network' => 'setNetwork',
-        'address' => 'setAddress',
-        'asset_type' => 'setAssetType',
-        'amount' => 'setAmount',
-        'dest_tag' => 'setDestTag',
-        'notify_url' => 'setNotifyUrl',
-        'note' => 'setNote',
+        'network'      => 'setNetwork',
+        'address'      => 'setAddress',
+        'asset_type'   => 'setAssetType',
+        'amount'       => 'setAmount',
+        'dest_tag'     => 'setDestTag',
+        'notify_url'   => 'setNotifyUrl',
+        'note'         => 'setNote',
         'auto_confirm' => 'setAutoConfirm',
-        'include_fee' => 'setIncludeFee'
+        'include_fee'  => 'setIncludeFee',
     ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'network' => 'getNetwork',
-        'address' => 'getAddress',
-        'asset_type' => 'getAssetType',
-        'amount' => 'getAmount',
-        'dest_tag' => 'getDestTag',
-        'notify_url' => 'getNotifyUrl',
-        'note' => 'getNote',
+        'network'      => 'getNetwork',
+        'address'      => 'getAddress',
+        'asset_type'   => 'getAssetType',
+        'amount'       => 'getAmount',
+        'dest_tag'     => 'getDestTag',
+        'notify_url'   => 'getNotifyUrl',
+        'note'         => 'getNote',
         'auto_confirm' => 'getAutoConfirm',
-        'include_fee' => 'getIncludeFee'
+        'include_fee'  => 'getIncludeFee',
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap()
@@ -141,7 +131,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters()
@@ -151,7 +140,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters()
@@ -161,7 +149,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName()
@@ -172,33 +159,30 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
+     * @param  mixed[]  $data  Associated array of property values
+     *                         initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['network'] = isset($data['network']) ? $data['network'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['dest_tag'] = isset($data['dest_tag']) ? $data['dest_tag'] : null;
-        $this->container['notify_url'] = isset($data['notify_url']) ? $data['notify_url'] : null;
-        $this->container['note'] = isset($data['note']) ? $data['note'] : null;
+        $this->container['network']      = isset($data['network']) ? $data['network'] : null;
+        $this->container['address']      = isset($data['address']) ? $data['address'] : null;
+        $this->container['asset_type']   = isset($data['asset_type']) ? $data['asset_type'] : null;
+        $this->container['amount']       = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['dest_tag']     = isset($data['dest_tag']) ? $data['dest_tag'] : null;
+        $this->container['notify_url']   = isset($data['notify_url']) ? $data['notify_url'] : null;
+        $this->container['note']         = isset($data['note']) ? $data['note'] : null;
         $this->container['auto_confirm'] = isset($data['auto_confirm']) ? $data['auto_confirm'] : null;
-        $this->container['include_fee'] = isset($data['include_fee']) ? $data['include_fee'] : null;
+        $this->container['include_fee']  = isset($data['include_fee']) ? $data['include_fee'] : null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
@@ -211,7 +195,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid()
@@ -222,7 +205,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets network
-     *
      * @return string
      */
     public function getNetwork()
@@ -232,9 +214,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets network
-     *
-     * @param string $network network
-     *
+     * @param  string  $network  network
      * @return $this
      */
     public function setNetwork($network)
@@ -246,7 +226,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets address
-     *
      * @return string
      */
     public function getAddress()
@@ -256,9 +235,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets address
-     *
-     * @param string $address address
-     *
+     * @param  string  $address  address
      * @return $this
      */
     public function setAddress($address)
@@ -270,7 +247,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets asset_type
-     *
      * @return string
      */
     public function getAssetType()
@@ -280,9 +256,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets asset_type
-     *
-     * @param string $asset_type asset_type
-     *
+     * @param  string  $asset_type  asset_type
      * @return $this
      */
     public function setAssetType($asset_type)
@@ -294,7 +268,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets amount
-     *
      * @return double
      */
     public function getAmount()
@@ -304,9 +277,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets amount
-     *
-     * @param double $amount amount
-     *
+     * @param  double  $amount  amount
      * @return $this
      */
     public function setAmount($amount)
@@ -318,7 +289,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets dest_tag
-     *
      * @return string
      */
     public function getDestTag()
@@ -328,9 +298,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets dest_tag
-     *
-     * @param string $dest_tag dest_tag
-     *
+     * @param  string  $dest_tag  dest_tag
      * @return $this
      */
     public function setDestTag($dest_tag)
@@ -342,7 +310,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets notify_url
-     *
      * @return string
      */
     public function getNotifyUrl()
@@ -352,9 +319,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets notify_url
-     *
-     * @param string $notify_url notify_url
-     *
+     * @param  string  $notify_url  notify_url
      * @return $this
      */
     public function setNotifyUrl($notify_url)
@@ -366,7 +331,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets note
-     *
      * @return string
      */
     public function getNote()
@@ -376,9 +340,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets note
-     *
-     * @param string $note note
-     *
+     * @param  string  $note  note
      * @return $this
      */
     public function setNote($note)
@@ -390,7 +352,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets auto_confirm
-     *
      * @return bool
      */
     public function getAutoConfirm()
@@ -400,9 +361,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets auto_confirm
-     *
-     * @param bool $auto_confirm auto_confirm
-     *
+     * @param  bool  $auto_confirm  auto_confirm
      * @return $this
      */
     public function setAutoConfirm($auto_confirm)
@@ -414,7 +373,6 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets include_fee
-     *
      * @return bool
      */
     public function getIncludeFee()
@@ -424,9 +382,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets include_fee
-     *
-     * @param bool $include_fee include_fee
-     *
+     * @param  bool  $include_fee  include_fee
      * @return $this
      */
     public function setIncludeFee($include_fee)
@@ -438,9 +394,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -451,9 +405,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -464,10 +416,8 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -482,9 +432,7 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -495,18 +443,18 @@ class CreateWithdrawalRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

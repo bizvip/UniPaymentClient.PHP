@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * PayoutItem Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,36 +16,32 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'PayoutItem';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
         'address' => 'string',
-        'amount' => 'double',
-        'hash' => 'string'
+        'amount'  => 'double',
+        'hash'    => 'string',
     ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
         'address' => null,
-        'amount' => 'double',
-        'hash' => null
+        'amount'  => 'double',
+        'hash'    => null,
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes()
@@ -56,7 +51,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats()
@@ -67,41 +61,37 @@ class PayoutItem implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
         'address' => 'address',
-        'amount' => 'amount',
-        'hash' => 'hash'
+        'amount'  => 'amount',
+        'hash'    => 'hash',
     ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
         'address' => 'setAddress',
-        'amount' => 'setAmount',
-        'hash' => 'setHash'
+        'amount'  => 'setAmount',
+        'hash'    => 'setHash',
     ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
         'address' => 'getAddress',
-        'amount' => 'getAmount',
-        'hash' => 'getHash'
+        'amount'  => 'getAmount',
+        'hash'    => 'getHash',
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap()
@@ -111,7 +101,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters()
@@ -121,7 +110,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters()
@@ -131,7 +119,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName()
@@ -142,27 +129,24 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
+     * @param  mixed[]  $data  Associated array of property values
+     *                         initializing the model
      */
     public function __construct(array $data = null)
     {
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['hash'] = isset($data['hash']) ? $data['hash'] : null;
+        $this->container['amount']  = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['hash']    = isset($data['hash']) ? $data['hash'] : null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
@@ -175,7 +159,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid()
@@ -186,7 +169,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Gets address
-     *
      * @return string
      */
     public function getAddress()
@@ -196,9 +178,7 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Sets address
-     *
-     * @param string $address address
-     *
+     * @param  string  $address  address
      * @return $this
      */
     public function setAddress($address)
@@ -210,7 +190,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Gets amount
-     *
      * @return double
      */
     public function getAmount()
@@ -220,9 +199,7 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Sets amount
-     *
-     * @param double $amount amount
-     *
+     * @param  double  $amount  amount
      * @return $this
      */
     public function setAmount($amount)
@@ -234,7 +211,6 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Gets hash
-     *
      * @return string
      */
     public function getHash()
@@ -244,9 +220,7 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Sets hash
-     *
-     * @param string $hash hash
-     *
+     * @param  string  $hash  hash
      * @return $this
      */
     public function setHash($hash)
@@ -258,9 +232,7 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -271,9 +243,7 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -284,10 +254,8 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -302,9 +270,7 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -315,18 +281,18 @@ class PayoutItem implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

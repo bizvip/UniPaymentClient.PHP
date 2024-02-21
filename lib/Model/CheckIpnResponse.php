@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * CheckIpnResponse Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,32 +16,30 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'CheckIpnResponse';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
         'code' => 'string',
-        'msg' => 'string'];
+        'msg'  => 'string',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
         'code' => null,
-        'msg' => null];
+        'msg'  => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes(): array
@@ -52,7 +49,6 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats(): array
@@ -63,35 +59,34 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
         'code' => 'code',
-        'msg' => 'msg'];
+        'msg'  => 'msg',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
         'code' => 'setCode',
-        'msg' => 'setMsg'];
+        'msg'  => 'setMsg',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
         'code' => 'getCode',
-        'msg' => 'getMsg'];
+        'msg'  => 'getMsg',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap(): array
@@ -101,7 +96,6 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters(): array
@@ -111,7 +105,6 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters(): array
@@ -121,7 +114,6 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName(): string
@@ -131,38 +123,35 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var array
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
+     * @param  mixed[]  $data  Associated array of property values
+     *                         initializing the model
      */
     public function __construct(array $data = null)
     {
         $this->container['code'] = $data['code'] ?? null;
-        $this->container['msg'] = $data['msg'] ?? null;
+        $this->container['msg']  = $data['msg'] ?? null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties(): array
     {
         $invalidProperties = [];
+
         return $invalidProperties;
     }
 
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid(): bool
@@ -173,7 +162,6 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets code
-     *
      * @return string
      */
     public function getCode(): string
@@ -183,9 +171,7 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Sets code
-     *
-     * @param string $code code
-     *
+     * @param  string  $code  code
      * @return $this
      */
     public function setCode(string $code): CheckIpnResponse
@@ -197,7 +183,6 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets msg
-     *
      * @return string
      */
     public function getMsg(): string
@@ -207,9 +192,7 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Sets msg
-     *
-     * @param string $msg msg
-     *
+     * @param  string  $msg  msg
      * @return $this
      */
     public function setMsg(string $msg): CheckIpnResponse
@@ -221,9 +204,7 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -234,9 +215,7 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -247,12 +226,11 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -264,11 +242,10 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -285,18 +262,18 @@ class CheckIpnResponse implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

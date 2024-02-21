@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * CreatePayoutRequest Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,36 +16,32 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'CreatePayoutRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'items' => '\UniPayment\Client\Model\PayoutRequestItem[]',
-        'network' => 'string',
-        'asset_type' => 'string'
+        'items'      => '\UniPayment\Client\Model\PayoutRequestItem[]',
+        'network'    => 'string',
+        'asset_type' => 'string',
     ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'items' => null,
-        'network' => null,
-        'asset_type' => null
+        'items'      => null,
+        'network'    => null,
+        'asset_type' => null,
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes()
@@ -56,7 +51,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats()
@@ -67,41 +61,37 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'items' => 'items',
-        'network' => 'network',
-        'asset_type' => 'asset_type'
+        'items'      => 'items',
+        'network'    => 'network',
+        'asset_type' => 'asset_type',
     ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'items' => 'setItems',
-        'network' => 'setNetwork',
-        'asset_type' => 'setAssetType'
+        'items'      => 'setItems',
+        'network'    => 'setNetwork',
+        'asset_type' => 'setAssetType',
     ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'items' => 'getItems',
-        'network' => 'getNetwork',
-        'asset_type' => 'getAssetType'
+        'items'      => 'getItems',
+        'network'    => 'getNetwork',
+        'asset_type' => 'getAssetType',
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap()
@@ -111,7 +101,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters()
@@ -121,7 +110,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters()
@@ -131,7 +119,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName()
@@ -142,27 +129,24 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
+     * @param  mixed[]  $data  Associated array of property values
+     *                         initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['items'] = isset($data['items']) ? $data['items'] : null;
-        $this->container['network'] = isset($data['network']) ? $data['network'] : null;
+        $this->container['items']      = isset($data['items']) ? $data['items'] : null;
+        $this->container['network']    = isset($data['network']) ? $data['network'] : null;
         $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
@@ -175,7 +159,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid()
@@ -186,7 +169,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets items
-     *
      * @return \UniPayment\Client\Model\PayoutRequestItem[]
      */
     public function getItems()
@@ -196,9 +178,7 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets items
-     *
-     * @param \UniPayment\Client\Model\PayoutRequestItem[] $items items
-     *
+     * @param  \UniPayment\Client\Model\PayoutRequestItem[]  $items  items
      * @return $this
      */
     public function setItems($items)
@@ -210,7 +190,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets network
-     *
      * @return string
      */
     public function getNetwork()
@@ -220,9 +199,7 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets network
-     *
-     * @param string $network network
-     *
+     * @param  string  $network  network
      * @return $this
      */
     public function setNetwork($network)
@@ -234,7 +211,6 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets asset_type
-     *
      * @return string
      */
     public function getAssetType()
@@ -244,9 +220,7 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets asset_type
-     *
-     * @param string $asset_type asset_type
-     *
+     * @param  string  $asset_type  asset_type
      * @return $this
      */
     public function setAssetType($asset_type)
@@ -258,9 +232,7 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -271,9 +243,7 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -284,10 +254,8 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -302,9 +270,7 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -315,18 +281,18 @@ class CreatePayoutRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

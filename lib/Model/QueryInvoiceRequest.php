@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * QueryInvoiceRequest Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,50 +16,48 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'QueryInvoiceRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'app_id' => 'string',
+        'app_id'     => 'string',
         'invoice_id' => 'string',
-        'order_id' => 'string',
-        'status' => 'string',
-        'page_no' => 'int',
-        'page_size' => 'int',
-        'is_asc' => 'bool',
-        'start' => 'string',
-        'end' => 'string',
-        'asc' => 'bool',
-        'empty' => 'bool'];
+        'order_id'   => 'string',
+        'status'     => 'string',
+        'page_no'    => 'int',
+        'page_size'  => 'int',
+        'is_asc'     => 'bool',
+        'start'      => 'string',
+        'end'        => 'string',
+        'asc'        => 'bool',
+        'empty'      => 'bool',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'app_id' => null,
+        'app_id'     => null,
         'invoice_id' => null,
-        'order_id' => null,
-        'status' => null,
-        'page_no' => 'int32',
-        'page_size' => 'int32',
-        'is_asc' => null,
-        'start' => null,
-        'end' => null,
-        'asc' => null,
-        'empty' => null];
+        'order_id'   => null,
+        'status'     => null,
+        'page_no'    => 'int32',
+        'page_size'  => 'int32',
+        'is_asc'     => null,
+        'start'      => null,
+        'end'        => null,
+        'asc'        => null,
+        'empty'      => null,
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes(): array
@@ -70,7 +67,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats(): array
@@ -81,62 +77,61 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'app_id' => 'appId',
+        'app_id'     => 'appId',
         'invoice_id' => 'invoiceId',
-        'order_id' => 'orderId',
-        'status' => 'status',
-        'page_no' => 'pageNo',
-        'page_size' => 'pageSize',
-        'is_asc' => 'isAsc',
-        'start' => 'start',
-        'end' => 'end',
-        'asc' => 'asc',
-        'empty' => 'empty'];
+        'order_id'   => 'orderId',
+        'status'     => 'status',
+        'page_no'    => 'pageNo',
+        'page_size'  => 'pageSize',
+        'is_asc'     => 'isAsc',
+        'start'      => 'start',
+        'end'        => 'end',
+        'asc'        => 'asc',
+        'empty'      => 'empty',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'app_id' => 'setAppId',
+        'app_id'     => 'setAppId',
         'invoice_id' => 'setInvoiceId',
-        'order_id' => 'setOrderId',
-        'status' => 'setStatus',
-        'page_no' => 'setPageNo',
-        'page_size' => 'setPageSize',
-        'is_asc' => 'setIsAsc',
-        'start' => 'setStart',
-        'end' => 'setEnd',
-        'asc' => 'setAsc',
-        'empty' => 'setEmpty'];
+        'order_id'   => 'setOrderId',
+        'status'     => 'setStatus',
+        'page_no'    => 'setPageNo',
+        'page_size'  => 'setPageSize',
+        'is_asc'     => 'setIsAsc',
+        'start'      => 'setStart',
+        'end'        => 'setEnd',
+        'asc'        => 'setAsc',
+        'empty'      => 'setEmpty',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'app_id' => 'getIAppId',
+        'app_id'     => 'getIAppId',
         'invoice_id' => 'getInvoiceId',
-        'order_id' => 'getOrderId',
-        'status' => 'getStatus',
-        'page_no' => 'getPageNo',
-        'page_size' => 'getPageSize',
-        'is_asc' => 'getIsAsc',
-        'start' => 'getStart',
-        'end' => 'getEnd',
-        'asc' => 'getAsc',
-        'empty' => 'getEmpty'];
+        'order_id'   => 'getOrderId',
+        'status'     => 'getStatus',
+        'page_no'    => 'getPageNo',
+        'page_size'  => 'getPageSize',
+        'is_asc'     => 'getIsAsc',
+        'start'      => 'getStart',
+        'end'        => 'getEnd',
+        'asc'        => 'getAsc',
+        'empty'      => 'getEmpty',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap(): array
@@ -146,7 +141,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters(): array
@@ -156,7 +150,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters(): array
@@ -166,7 +159,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName(): string
@@ -176,35 +168,32 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var array
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param array|null $data Associated array of property values
-     *                      initializing the model
+     * @param  array|null  $data  Associated array of property values
+     *                            initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['app_id'] = $data['app_id'] ?? null;
+        $this->container['app_id']     = $data['app_id'] ?? null;
         $this->container['invoice_id'] = $data['invoice_id'] ?? null;
-        $this->container['order_id'] = $data['order_id'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['page_no'] = $data['page_no'] ?? null;
-        $this->container['page_size'] = $data['page_size'] ?? null;
-        $this->container['is_asc'] = $data['is_asc'] ?? null;
-        $this->container['start'] = $data['start'] ?? null;
-        $this->container['end'] = $data['end'] ?? null;
-        $this->container['asc'] = $data['asc'] ?? null;
-        $this->container['empty'] = $data['empty'] ?? null;
+        $this->container['order_id']   = $data['order_id'] ?? null;
+        $this->container['status']     = $data['status'] ?? null;
+        $this->container['page_no']    = $data['page_no'] ?? null;
+        $this->container['page_size']  = $data['page_size'] ?? null;
+        $this->container['is_asc']     = $data['is_asc'] ?? null;
+        $this->container['start']      = $data['start'] ?? null;
+        $this->container['end']        = $data['end'] ?? null;
+        $this->container['asc']        = $data['asc'] ?? null;
+        $this->container['empty']      = $data['empty'] ?? null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties(): array
@@ -217,7 +206,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid(): bool
@@ -227,7 +215,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets app_id
-     *
      * @return string
      */
     public function getAppId()
@@ -237,9 +224,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets app_id
-     *
-     * @param string $app_id app_id
-     *
+     * @param  string  $app_id  app_id
      * @return $this
      */
     public function setAppId(string $app_id): QueryInvoiceRequest
@@ -251,7 +236,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets invoice_id
-     *
      * @return string
      */
     public function getInvoiceId()
@@ -261,9 +245,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets invoice_id
-     *
-     * @param string $invoice_id invoice_id
-     *
+     * @param  string  $invoice_id  invoice_id
      * @return $this
      */
     public function setInvoiceId(string $invoice_id): QueryInvoiceRequest
@@ -275,7 +257,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets order_id
-     *
      * @return string
      */
     public function getOrderId(): string
@@ -285,9 +266,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets order_id
-     *
-     * @param string $order_id order_id
-     *
+     * @param  string  $order_id  order_id
      * @return $this
      */
     public function setOrderId(string $order_id): QueryInvoiceRequest
@@ -299,7 +278,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets status
-     *
      * @return string
      */
     public function getStatus()
@@ -309,9 +287,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets status
-     *
-     * @param string $status status
-     *
+     * @param  string  $status  status
      * @return $this
      */
     public function setStatus(string $status): QueryInvoiceRequest
@@ -323,7 +299,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets page_no
-     *
      * @return int
      */
     public function getPageNo()
@@ -333,9 +308,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets page_no
-     *
-     * @param int $page_no page_no
-     *
+     * @param  int  $page_no  page_no
      * @return $this
      */
     public function setPageNo(int $page_no): QueryInvoiceRequest
@@ -347,7 +320,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets page_size
-     *
      * @return int
      */
     public function getPageSize()
@@ -357,9 +329,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets page_size
-     *
-     * @param int $page_size page_size
-     *
+     * @param  int  $page_size  page_size
      * @return $this
      */
     public function setPageSize(int $page_size): QueryInvoiceRequest
@@ -371,7 +341,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets is_asc
-     *
      * @return bool
      */
     public function getIsAsc()
@@ -381,9 +350,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets is_asc
-     *
-     * @param bool $is_asc is_asc
-     *
+     * @param  bool  $is_asc  is_asc
      * @return $this
      */
     public function setIsAsc(bool $is_asc): QueryInvoiceRequest
@@ -395,7 +362,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets start
-     *
      * @return string
      */
     public function getStart()
@@ -405,9 +371,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets start
-     *
-     * @param string $start start
-     *
+     * @param  string  $start  start
      * @return $this
      */
     public function setStart(string $start): QueryInvoiceRequest
@@ -419,7 +383,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets end
-     *
      * @return string
      */
     public function getEnd()
@@ -429,9 +392,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets end
-     *
-     * @param string $end end
-     *
+     * @param  string  $end  end
      * @return $this
      */
     public function setEnd(string $end): QueryInvoiceRequest
@@ -443,7 +404,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets asc
-     *
      * @return bool
      */
     public function getAsc()
@@ -453,9 +413,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets asc
-     *
-     * @param bool $asc asc
-     *
+     * @param  bool  $asc  asc
      * @return $this
      */
     public function setAsc(bool $asc): QueryInvoiceRequest
@@ -467,7 +425,6 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets empty
-     *
      * @return bool
      */
     public function getEmpty()
@@ -477,9 +434,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets empty
-     *
-     * @param bool $empty empty
-     *
+     * @param  bool  $empty  empty
      * @return $this
      */
     public function setEmpty(bool $empty): QueryInvoiceRequest
@@ -491,9 +446,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -504,9 +457,7 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -517,12 +468,11 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -534,11 +484,10 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -555,18 +504,18 @@ class QueryInvoiceRequest implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

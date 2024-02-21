@@ -7,7 +7,6 @@ use \UniPayment\Client\ObjectSerializer;
 
 /**
  * WithdrawalModel Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -17,48 +16,44 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'WithdrawalModel';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'id' => 'string',
-        'network' => 'string',
-        'asset_type' => 'string',
-        'amount' => 'double',
-        'address' => 'string',
-        'fee' => 'double',
-        'status' => 'string',
-        'txn_hash' => 'string',
-        'create_time' => '\DateTime'
+        'id'          => 'string',
+        'network'     => 'string',
+        'asset_type'  => 'string',
+        'amount'      => 'double',
+        'address'     => 'string',
+        'fee'         => 'double',
+        'status'      => 'string',
+        'txn_hash'    => 'string',
+        'create_time' => '\DateTime',
     ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'id' => null,
-        'network' => null,
-        'asset_type' => null,
-        'amount' => 'double',
-        'address' => null,
-        'fee' => 'double',
-        'status' => null,
-        'txn_hash' => null,
-        'create_time' => 'date-time'
+        'id'          => null,
+        'network'     => null,
+        'asset_type'  => null,
+        'amount'      => 'double',
+        'address'     => null,
+        'fee'         => 'double',
+        'status'      => null,
+        'txn_hash'    => null,
+        'create_time' => 'date-time',
     ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes()
@@ -68,7 +63,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats()
@@ -79,59 +73,55 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id',
-        'network' => 'network',
-        'asset_type' => 'asset_type',
-        'amount' => 'amount',
-        'address' => 'address',
-        'fee' => 'fee',
-        'status' => 'status',
-        'txn_hash' => 'txn_hash',
-        'create_time' => 'create_time'
+        'id'          => 'id',
+        'network'     => 'network',
+        'asset_type'  => 'asset_type',
+        'amount'      => 'amount',
+        'address'     => 'address',
+        'fee'         => 'fee',
+        'status'      => 'status',
+        'txn_hash'    => 'txn_hash',
+        'create_time' => 'create_time',
     ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId',
-        'network' => 'setNetwork',
-        'asset_type' => 'setAssetType',
-        'amount' => 'setAmount',
-        'address' => 'setAddress',
-        'fee' => 'setFee',
-        'status' => 'setStatus',
-        'txn_hash' => 'setTxnHash',
-        'create_time' => 'setCreateTime'
+        'id'          => 'setId',
+        'network'     => 'setNetwork',
+        'asset_type'  => 'setAssetType',
+        'amount'      => 'setAmount',
+        'address'     => 'setAddress',
+        'fee'         => 'setFee',
+        'status'      => 'setStatus',
+        'txn_hash'    => 'setTxnHash',
+        'create_time' => 'setCreateTime',
     ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId',
-        'network' => 'getNetwork',
-        'asset_type' => 'getAssetType',
-        'amount' => 'getAmount',
-        'address' => 'getAddress',
-        'fee' => 'getFee',
-        'status' => 'getStatus',
-        'txn_hash' => 'getTxnHash',
-        'create_time' => 'getCreateTime'
+        'id'          => 'getId',
+        'network'     => 'getNetwork',
+        'asset_type'  => 'getAssetType',
+        'amount'      => 'getAmount',
+        'address'     => 'getAddress',
+        'fee'         => 'getFee',
+        'status'      => 'getStatus',
+        'txn_hash'    => 'getTxnHash',
+        'create_time' => 'getCreateTime',
     ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap()
@@ -141,7 +131,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters()
@@ -151,7 +140,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters()
@@ -161,7 +149,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName()
@@ -170,16 +157,15 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
     }
 
     const STATUS_PENDING = 'Pending';
-    const STATUS_CANCEL = 'Cancel';
+    const STATUS_CANCEL  = 'Cancel';
     const STATUS_CONFIRM = 'Confirm';
-    const STATUS_REJECT = 'Reject';
+    const STATUS_REJECT  = 'Reject';
     const STATUS_APPROVE = 'Approve';
     const STATUS_SUCCESS = 'Success';
-    const STATUS_FAIL = 'Fail';
+    const STATUS_FAIL    = 'Fail';
 
     /**
      * Gets allowable values of the enum
-     *
      * @return string[]
      */
     public function getStatusAllowableValues()
@@ -197,33 +183,30 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var mixed[]
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param mixed[] $data Associated array of property values
-     *                      initializing the model
+     * @param  mixed[]  $data  Associated array of property values
+     *                         initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = isset($data['id']) ? $data['id'] : null;
-        $this->container['network'] = isset($data['network']) ? $data['network'] : null;
-        $this->container['asset_type'] = isset($data['asset_type']) ? $data['asset_type'] : null;
-        $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
-        $this->container['address'] = isset($data['address']) ? $data['address'] : null;
-        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['txn_hash'] = isset($data['txn_hash']) ? $data['txn_hash'] : null;
+        $this->container['id']          = isset($data['id']) ? $data['id'] : null;
+        $this->container['network']     = isset($data['network']) ? $data['network'] : null;
+        $this->container['asset_type']  = isset($data['asset_type']) ? $data['asset_type'] : null;
+        $this->container['amount']      = isset($data['amount']) ? $data['amount'] : null;
+        $this->container['address']     = isset($data['address']) ? $data['address'] : null;
+        $this->container['fee']         = isset($data['fee']) ? $data['fee'] : null;
+        $this->container['status']      = isset($data['status']) ? $data['status'] : null;
+        $this->container['txn_hash']    = isset($data['txn_hash']) ? $data['txn_hash'] : null;
         $this->container['create_time'] = isset($data['create_time']) ? $data['create_time'] : null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties()
@@ -232,10 +215,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
+            $invalidProperties[] = sprintf("invalid value for 'status', must be one of '%s'", implode("', '", $allowedValues));
         }
 
         return $invalidProperties;
@@ -244,7 +224,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid()
@@ -255,7 +234,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets id
-     *
      * @return string
      */
     public function getId()
@@ -265,9 +243,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets id
-     *
-     * @param string $id id
-     *
+     * @param  string  $id  id
      * @return $this
      */
     public function setId($id)
@@ -279,7 +255,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets network
-     *
      * @return string
      */
     public function getNetwork()
@@ -289,9 +264,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets network
-     *
-     * @param string $network network
-     *
+     * @param  string  $network  network
      * @return $this
      */
     public function setNetwork($network)
@@ -303,7 +276,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets asset_type
-     *
      * @return string
      */
     public function getAssetType()
@@ -313,9 +285,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets asset_type
-     *
-     * @param string $asset_type asset_type
-     *
+     * @param  string  $asset_type  asset_type
      * @return $this
      */
     public function setAssetType($asset_type)
@@ -327,7 +297,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets amount
-     *
      * @return double
      */
     public function getAmount()
@@ -337,9 +306,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets amount
-     *
-     * @param double $amount amount
-     *
+     * @param  double  $amount  amount
      * @return $this
      */
     public function setAmount($amount)
@@ -351,7 +318,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets address
-     *
      * @return string
      */
     public function getAddress()
@@ -361,9 +327,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets address
-     *
-     * @param string $address address
-     *
+     * @param  string  $address  address
      * @return $this
      */
     public function setAddress($address)
@@ -375,7 +339,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets fee
-     *
      * @return double
      */
     public function getFee()
@@ -385,9 +348,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets fee
-     *
-     * @param double $fee fee
-     *
+     * @param  double  $fee  fee
      * @return $this
      */
     public function setFee($fee)
@@ -399,7 +360,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets status
-     *
      * @return string
      */
     public function getStatus()
@@ -409,21 +369,14 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets status
-     *
-     * @param string $status status
-     *
+     * @param  string  $status  status
      * @return $this
      */
     public function setStatus($status)
     {
         $allowedValues = $this->getStatusAllowableValues();
         if (!is_null($status) && !in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
+            throw new \InvalidArgumentException(sprintf("Invalid value for 'status', must be one of '%s'", implode("', '", $allowedValues)));
         }
         $this->container['status'] = $status;
 
@@ -432,7 +385,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets txn_hash
-     *
      * @return string
      */
     public function getTxnHash()
@@ -442,9 +394,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets txn_hash
-     *
-     * @param string $txn_hash txn_hash
-     *
+     * @param  string  $txn_hash  txn_hash
      * @return $this
      */
     public function setTxnHash($txn_hash)
@@ -456,7 +406,6 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets create_time
-     *
      * @return \DateTime
      */
     public function getCreateTime()
@@ -466,9 +415,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets create_time
-     *
-     * @param \DateTime $create_time create_time
-     *
+     * @param  \DateTime  $create_time  create_time
      * @return $this
      */
     public function setCreateTime($create_time)
@@ -480,9 +427,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -493,9 +438,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -506,10 +449,8 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -524,9 +465,7 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
     #[\ReturnTypeWillChange]
@@ -537,18 +476,18 @@ class WithdrawalModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }

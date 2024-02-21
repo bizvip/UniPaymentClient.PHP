@@ -5,12 +5,11 @@
 
 namespace UniPayment\Client\Model;
 
-use \ArrayAccess;
-use \UniPayment\Client\ObjectSerializer;
+use ArrayAccess;
+use UniPayment\Client\ObjectSerializer;
 
 /**
  * InvoicePageListModel Class Doc Comment
- *
  * @category Class
  * @package  UniPayment\Client
  */
@@ -20,36 +19,34 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @var string
      */
     protected static $modelName = 'InvoicePageListModel';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldTypes = [
-        'models' => '\UniPayment\Client\Model\InvoiceModel[]',
-        'total' => 'int',
-        'page_no' => 'int',
-        'page_count' => 'int'];
+        'models'     => '\UniPayment\Client\Model\InvoiceModel[]',
+        'total'      => 'int',
+        'page_no'    => 'int',
+        'page_count' => 'int',
+    ];
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @var string[]
      */
     protected static $fieldFormats = [
-        'models' => null,
-        'total' => 'int32',
-        'page_no' => 'int32',
-        'page_count' => 'int32'];
+        'models'     => null,
+        'total'      => 'int32',
+        'page_no'    => 'int32',
+        'page_count' => 'int32',
+    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldTypes(): array
@@ -59,7 +56,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of property to format mappings. Used for (de)serialization
-     *
      * @return array
      */
     public static function fieldFormats(): array
@@ -70,41 +66,40 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @var string[]
      */
     protected static $attributeMap = [
-        'models' => 'models',
-        'total' => 'total',
-        'page_no' => 'page_no',
-        'page_count' => 'page_count'];
+        'models'     => 'models',
+        'total'      => 'total',
+        'page_no'    => 'page_no',
+        'page_count' => 'page_count',
+    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @var string[]
      */
     protected static $setters = [
-        'models' => 'setModels',
-        'total' => 'setTotal',
-        'page_no' => 'setPageNo',
-        'page_count' => 'setPageCount'];
+        'models'     => 'setModels',
+        'total'      => 'setTotal',
+        'page_no'    => 'setPageNo',
+        'page_count' => 'setPageCount',
+    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @var string[]
      */
     protected static $getters = [
-        'models' => 'getModels',
-        'total' => 'getTotal',
-        'page_no' => 'getPageNo',
-        'page_count' => 'getPageCount'];
+        'models'     => 'getModels',
+        'total'      => 'getTotal',
+        'page_no'    => 'getPageNo',
+        'page_count' => 'getPageCount',
+    ];
 
     /**
      * Array of attributes where the key is the local name,
      * and the value is the original name
-     *
      * @return array
      */
     public static function attributeMap(): array
@@ -114,7 +109,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
-     *
      * @return array
      */
     public static function setters(): array
@@ -124,7 +118,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
-     *
      * @return array
      */
     public static function getters(): array
@@ -134,7 +127,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * The original name of the model.
-     *
      * @return string
      */
     public function getModelName(): string
@@ -144,28 +136,25 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Associative array for storing property values
-     *
      * @var array
      */
     protected $container = [];
 
     /**
      * Constructor
-     *
-     * @param array|null $data Associated array of property values
-     *                      initializing the model
+     * @param  array|null  $data  Associated array of property values
+     *                            initializing the model
      */
     public function __construct(array $data = null)
     {
-        $this->container['models'] = $data['models'] ?? null;
-        $this->container['total'] = $data['total'] ?? null;
-        $this->container['page_no'] = $data['page_no'] ?? null;
+        $this->container['models']     = $data['models'] ?? null;
+        $this->container['total']      = $data['total'] ?? null;
+        $this->container['page_no']    = $data['page_no'] ?? null;
         $this->container['page_count'] = $data['page_count'] ?? null;
     }
 
     /**
      * Show all the invalid properties with reasons.
-     *
      * @return array invalid properties with reasons
      */
     public function listInvalidProperties(): array
@@ -178,7 +167,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
     /**
      * Validate all the properties in the model
      * return true if all passed
-     *
      * @return bool True if all properties are valid
      */
     public function valid(): bool
@@ -189,7 +177,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets models
-     *
      * @return InvoiceModel[]
      */
     public function getModels(): array
@@ -199,9 +186,7 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets models
-     *
-     * @param InvoiceModel[] $models models
-     *
+     * @param  InvoiceModel[]  $models  models
      * @return $this
      */
     public function setModels(array $models): InvoicePageListModel
@@ -213,7 +198,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets total
-     *
      * @return int
      */
     public function getTotal(): int
@@ -223,9 +207,7 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets total
-     *
-     * @param int $total total
-     *
+     * @param  int  $total  total
      * @return $this
      */
     public function setTotal($total): InvoicePageListModel
@@ -237,7 +219,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets page_no
-     *
      * @return int
      */
     public function getPageNo(): int
@@ -247,9 +228,7 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets page_no
-     *
-     * @param int $page_no page_no
-     *
+     * @param  int  $page_no  page_no
      * @return $this
      */
     public function setPageNo(int $page_no): InvoicePageListModel
@@ -261,7 +240,6 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets page_count
-     *
      * @return int
      */
     public function getPageCount(): int
@@ -271,9 +249,7 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets page_count
-     *
-     * @param int $page_count page_count
-     *
+     * @param  int  $page_count  page_count
      * @return $this
      */
     public function setPageCount(int $page_count): InvoicePageListModel
@@ -285,9 +261,7 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Returns true if offset exists. False otherwise.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return boolean
      */
     #[\ReturnTypeWillChange]
@@ -298,9 +272,7 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return mixed
      */
     #[\ReturnTypeWillChange]
@@ -311,12 +283,11 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Sets value based on offset.
-     *
-     * @param integer $offset Offset
-     * @param mixed $value Value to be set
-     *
+     * @param  integer  $offset  Offset
+     * @param  mixed  $value     Value to be set
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
     {
         if (is_null($offset)) {
@@ -328,11 +299,10 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Unsets offset.
-     *
-     * @param integer $offset Offset
-     *
+     * @param  integer  $offset  Offset
      * @return void
      */
+    #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
     {
         unset($this->container[$offset]);
@@ -340,18 +310,18 @@ class InvoicePageListModel implements ModelInterface, ArrayAccess
 
     /**
      * Gets the string presentation of the object
-     *
      * @return string
      */
     public function __toString()
     {
         if (defined('JSON_PRETTY_PRINT')) { // use JSON pretty print
-            return json_encode(
-                ObjectSerializer::sanitizeForSerialization($this),
-                JSON_PRETTY_PRINT
-            );
+            $data = json_encode(ObjectSerializer::sanitizeForSerialization($this), JSON_PRETTY_PRINT);
+
+            return $data === false ? '' : $data;
         }
 
-        return json_encode(ObjectSerializer::sanitizeForSerialization($this));
+        $data = json_encode(ObjectSerializer::sanitizeForSerialization($this));
+
+        return $data === false ? '' : $data;
     }
 }
